@@ -1,0 +1,47 @@
+﻿@using Resources
+@model VYMSolucion.Model.DatosUsuarioModel
+@{
+    ViewBag.Title = ResourceLayout.ActivarCuenta;
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="promo-box heading text-center">
+            <h2>@ResourceLayout.ActivarCuenta</h2>
+            <p class="lead">@ResourceLayout.Bienvenido <span class="span-bold">@Model.Nombres</span> @ResourceLayout.MensajeActivacionCuenta:</p>
+            <hr />
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-offset-5">
+        <div class="row">
+            <!-- 1 -->
+            <div class="col-md-4 box">
+                <div class="promo-box-button">
+                    @(Html.Kendo().Button()
+                        .Name("btnIniciarSesion")
+                          .Content(@<text>
+                            <i class="fa fa-users"></i>
+                            <h3>@ResourceLayout.IniciarSesion</h3>
+                            <hr />
+                            <p>@ResourceLayout.MensajeBotonIniciarSesion.</p>
+                        </text>)
+                        .HtmlAttributes(new { type = "button", style = "width: 100%;" })
+                        .Events(e => e.Click("ClickVistaIniciarSession"))
+                    )
+                </div>
+            </div>
+            <!-- .1 -->
+        </div>
+    </div>
+</div>
+
+<script>
+    //Función para abrir vista de iniciar sesión
+    function ClickVistaIniciarSession() {
+        window.location.href = "@Url.Action("Index","IniciarSesion")";
+    }
+
+</script>

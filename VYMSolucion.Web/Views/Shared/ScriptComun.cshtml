@@ -1,0 +1,359 @@
+﻿@using Resources
+<script type="text/javascript">
+    $(document).ready(function () {
+        //$('input[type=text]#CaptchaInputText').addClass('form-control');
+        kendo.culture("es-EC");
+    });
+    kendo.culture("es-EC");
+</script>
+
+<script type="text/javascript">
+
+    $(function() { $("form").kendoValidator(); });
+
+
+    $(document).ready(function() {
+        function disableBack() { window.history.forward() }
+
+        window.onload = disableBack();
+        window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
+    });
+</script>
+
+<script type="text/kendo-template" id="message">
+    <div class="k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error" style="margin: 0.5em; display: block; " data-for="#=field#" data-valmsg-for="#=field#" id="#=field#_validationMessage">
+        <span class="k-icon k-warning"> </span>#=message#<div class="k-callout k-callout-n">
+        </div>
+    </div>
+</script>
+
+<script>
+    var validationMessageTmpl = kendo.template($("#message").html());
+
+    // Define el maxlength para el grid
+    function SetLenghtInputs(e) {
+        $("input[data-val-length-max]").each(function (index, element) {
+            var length = parseInt($(this).attr("data-val-length-max"));
+            $(this).prop("maxlength", length);
+        });
+    }
+
+    function OnError(args, name) {
+        if (args.errors) {
+            var grid = $("#"+name).data("kendoGrid");
+            grid.one("dataBinding", function (e) {
+                e.preventDefault();
+                for (var error in args.errors) {
+                    if (error == "borrar") {
+                        grid.cancelChanges();
+                        alert(args.errors[error].errors[0]);
+                        return;
+                    }
+                } 
+                for (var error in args.errors) {
+                    showMessage(grid.editable.element, error, args.errors[error].errors);
+                }
+            });
+        }
+    }
+
+    function OnRefresh(args, name) {
+        var grid = $("#" + name).data("kendoGrid");
+        grid.dataSource.read();
+        grid.refresh();
+
+    }
+
+    function showMessage(container, name, errors) {
+        container.find("[data-valmsg-for=" + name + "],[data-val-msg-for=" + name + "]")
+            .replaceWith(validationMessageTmpl({ field: name, message: errors[0] }));
+    }
+
+    //función para confirm template
+    function showConfirmationWindow(message) {
+        return showWindow('#confirmationTemplate', message);
+    };
+
+    //función para alerta template
+    function showAlertWindow(message) {
+        return showWindowAlert('#alertTemplate', message);
+    }
+
+    function showWindow(template, message) {
+
+        var dfd = new jQuery.Deferred();
+        var result = false;
+
+        $("<div id='popupWindow'></div>")
+            .appendTo("body")
+            .kendoWindow({
+                width: "auto",
+                modal: true,
+                title: '@ResourceComun.Confirmacion',
+                modal: true,
+                visible: false,
+                close: function (e) {
+                    this.destroy();
+                    dfd.resolve(result);
+                }
+            }).data('kendoWindow').content($(template).html()).center().open();
+
+        $('.popupMessage').html("<p align='justify'>" + message + "</p>");
+
+        $('#popupWindow .confirm_yes').val('@ResourceComun.Si');
+        $('#popupWindow .confirm_no').val('@ResourceComun.No');
+
+        $('#popupWindow .confirm_no').click(function () {
+            $('#popupWindow').data('kendoWindow').close();
+        });
+
+        $('#popupWindow .confirm_yes').click(function () {
+            result = true;
+            $('#popupWindow').data('kendoWindow').close();
+        });
+
+        return dfd.promise();
+    };
+
+    function showWindowAlert(template, message) {
+
+        var dfd = new jQuery.Deferred();
+        var result = false;
+
+        $("<div id='popupWindowAlert'></div>")
+            .appendTo("body")
+            .kendoWindow({
+                width: "auto",
+                modal: true,
+                title: '@ResourceComun.Alerta',
+                modal: true,
+                visible: false,
+                close: function (e) {
+                    this.destroy();
+                    dfd.resolve(result);
+                }
+            }).data('kendoWindow').content($(template).html()).center().open();
+
+        $('.popupMessageAlert').html("<p align='justify'>" + message + "</p>");
+
+        $('#popupWindowAlert .confirm_yes').val('@ResourceComun.Aceptar');
+        //$('#popupWindowAlert .confirm_no').val('@ResourceComun.No');
+
+        //$('#popupWindowAlert .confirm_no').click(function () {
+        //    $('#popupWindowAlert').data('kendoWindow').close();
+        //});
+
+        $('#popupWindowAlert .confirm_yes').click(function () {
+            result = true;
+            $('#popupWindowAlert').data('kendoWindow').close();
+        });
+
+        return dfd.promise();
+    };
+
+    
+</script>
+
+<script type="text/javascript">
+
+    function cookieExists(name) {
+        var nameToFind = name + "=";
+
+        var cookies = document.cookie.split(';');
+
+        for (var i = 0; i < cookies.length; i++) {
+            if (cookies[i].trim().indexOf(nameToFind) === 0) return true;
+        }
+
+        return false;
+    }
+
+    if (!cookieExists("_timeZoneOffset")) {
+        var now = new Date();
+
+        var timeZoneOffset = -now.getTimezoneOffset(); // en minutos
+        now.setTime(now.getTime() + 10 * 24 * 60 * 60 * 1000); // Almacenado por 10 días
+        document.cookie = "_timeZoneOffset=" + timeZoneOffset.toString() + ";expires=" + now.toGMTString() + ";path=/;" + document.cookie;
+    }
+</script>
+
+
+<script type="text/javascript">
+    function sendAntiForgery() {
+        return { "__RequestVerificationToken": $('input[name=__RequestVerificationToken]').val() }
+    }
+
+    //Genera estilos para errores personalizados
+    function validarCustomInputs(documento) {
+        
+        var container = documento.getElementsByTagName("form");
+        for (var j = 0; j < container.length; j++) {
+            var spanTags = container[j].getElementsByTagName("span");
+            var contar = spanTags.length;
+            for (var i = 0; i < contar; i++) {
+                var className = spanTags[i].className;
+                var idName = spanTags[i].id;
+                var nombreSpan = "error-span-" + idName;
+                if (className == nombreSpan) {
+                    $MySpans = $("." + nombreSpan + " span");
+                    $valorSpan = $("." + nombreSpan + " span").text();
+                    $("." + nombreSpan + " span").html("");
+                    if ($valorSpan != "") {
+                        $("." + nombreSpan + " span").html("<span class='k-icon k-warning'> </span>" + $valorSpan);
+                        $MySpans.removeClass();
+                        $MySpans.addClass("k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error");
+                    }
+                }
+            }
+        }
+    }
+</script>
+@*Edita el tamaño de los buttons de los grid Layout*@
+<style type="text/css">
+    .k-grid tbody .k-button {
+        -moz-min-width: 14px;
+        -ms-min-width: 14px;
+        -o-min-width: 14px;
+        -webkit-min-width: 14px;
+        min-width: 14px;
+        width: 25px;
+    }
+
+    .span-bold {
+        font-weight: bold;
+    }
+
+    .span-color-red {
+        color: red;
+    }
+
+    .span-color-white {
+        color: white;
+    }
+
+    .dropDrawnList-border {
+        border: 1px solid #eeeeee;
+    }
+</style>
+
+<script id="confirmationTemplate" type="text/x-kendo-template">
+    <div class="popupMessage"></div>
+    </br>
+    <hr />
+    <div class="dialog_buttons">
+        <input type="button" class="confirm_yes k-button" value="Yes" style="width: 70px" />
+        &nbsp;
+        <input type="button" class="confirm_no k-button" value="No" style="width: 70px" />
+    </div>
+</script>
+
+<script id="alertTemplate" type="text/x-kendo-template">
+    <div class="popupMessageAlert"></div>
+    </br>
+    <hr />
+    <div class="dialog_buttons">
+        <center>
+            <input type="button" class="confirm_yes k-button" value="Yes" style="width: 70px" />
+        </center>
+    </div>
+</script>
+
+<style>
+        /*style para checkbox*/
+
+        /* ============================================================
+      COMMON
+    ============================================================ */
+    .cmn-toggle {
+        position: absolute;
+        margin-left: -9999px;
+        visibility: hidden;
+    }
+
+    .cmn-toggle + label {
+        display: block;
+        position: relative;
+        cursor: pointer;
+        outline: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    /* ============================================================
+      SWITCH 3 - YES NO
+    ============================================================ */
+    input.cmn-toggle-yes-no + label {
+        padding: 2px;
+        width: 50px;
+        height: 20px;
+        font-weight: bold;
+    }
+
+    input.cmn-toggle-yes-no + label:before, input.cmn-toggle-yes-no + label:after {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        color: #fff;
+        font-family: "Roboto Slab", serif;
+        font-size: 12px;
+        text-align: center;
+        line-height: 20px;
+    }
+
+    input.cmn-toggle-yes-no + label:before {
+        background-color: #dddddd;
+        content: attr(data-off);
+        -webkit-transition: -webkit-transform 0.5s;
+        -moz-transition: -moz-transform 0.5s;
+        -o-transition: -o-transform 0.5s;
+        transition: transform 0.5s;
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        -o-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    input.cmn-toggle-yes-no + label:after {
+        background-color: #8ce196;
+        content: attr(data-on);
+        -webkit-transition: -webkit-transform 0.5s;
+        -moz-transition: -moz-transform 0.5s;
+        -o-transition: -o-transform 0.5s;
+        transition: transform 0.5s;
+        -webkit-transform: rotateY(180deg);
+        -moz-transform: rotateY(180deg);
+        -ms-transform: rotateY(180deg);
+        -o-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        -o-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    input.cmn-toggle-yes-no:checked + label:before {
+        -webkit-transform: rotateY(180deg);
+        -moz-transform: rotateY(180deg);
+        -ms-transform: rotateY(180deg);
+        -o-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+    }
+
+    input.cmn-toggle-yes-no:checked + label:after {
+        -webkit-transform: rotateY(0);
+        -moz-transform: rotateY(0);
+        -ms-transform: rotateY(0);
+        -o-transform: rotateY(0);
+        transform: rotateY(0);
+    }
+
+/*fin de style*/
+</style>
+

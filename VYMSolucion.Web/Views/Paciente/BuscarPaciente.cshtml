@@ -1,0 +1,195 @@
+﻿@using Resources
+@using VYMSolucion.Model
+@{
+    ViewBag.Title = ResourceLayout.Buscar + " " + ResourceLayout.Paciente;
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="heading">
+            <h3><span class="span-bold">@ViewBag.Title</span></h3>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><span class="span-bold">@ResourceLayout.Filtros</span></h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label><span class="span-bold">@ResourceComun.Nombres :</span></label>
+                            @Html.TextBox("txtNombres", null, new {@class = "form-control", placeholder = ResourceComun.Nombres})
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        @(Html.Kendo().Button()
+                              .Name("btnBuscar")
+                              .Content(ResourceLayout.Buscar)
+                              .HtmlAttributes(new {@class = "button-normal full white", type = "button"})
+                              .Events(e => e.Click("buscar"))
+                              )
+                        @(Html.Kendo().Button()
+                              .Name("btnLimpiar")
+                              .Content(ResourceLayout.Limpiar)
+                              .HtmlAttributes(new {@class = "button-normal full white", type = "button"})
+                              .Events(e => e.Click("Restablecer"))
+                              )
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-xs-2 col-md-1">
+                @(Html.Kendo().Button()
+                      .Name("btnNuevo")
+                      .Content(@<text>
+                                   <img src="@Url.Content("~/Content/IconosSistema/add-circle-green-128.png")" width="20"/>
+                                </text>)
+                      .HtmlAttributes(new {type = "button"})
+                      )
+                @Html.Kendo().Tooltip().For("#btnNuevo").Content(ResourceLayout.Nuevo + " " + ResourceLayout.Paciente).Position(TooltipPosition.Top)
+            </div>
+            <div class="col-xs-2 col-md-1">
+                @using (Html.BeginForm("VerPaciente", "Paciente"))
+                {
+                    <input id="idEntidadPersonaV" name="idEntidadPersona" type="hidden" />
+                    @(Html.Kendo().Button()
+                          .Name("btnVer")
+                          .Content(@<text>
+                            <img src="@Url.Content("~/Content/IconosSistema/user-male-circle-blue-128.png")" width="20" />
+                        </text>)
+                          .HtmlAttributes(new { type = "button" })
+                    )
+                }
+                @Html.Kendo().Tooltip().For("#btnVer").Content(ResourceLayout.Ver + " " + ResourceLayout.Paciente).Position(TooltipPosition.Top)
+            </div>
+            <div class="col-xs-2 col-md-1">
+                @using (Html.BeginForm("EditarPaciente", "Paciente"))
+                {
+                    <input id="idEntidadPersonaE" name="idEntidadPersona" type="hidden" />
+                    @(Html.Kendo().Button()
+                          .Name("btnEditar")
+                          .Content(@<text>
+                                       <img src="@Url.Content("~/Content/IconosSistema/write-circle-blue-128.png")" width="20"/>
+                                    </text>)
+                          .HtmlAttributes(new { type = "button"})
+                          )
+                }
+                @Html.Kendo().Tooltip().For("#btnEditar").Content(ResourceLayout.Editar + " " + ResourceLayout.Paciente).Position(TooltipPosition.Top)
+            </div>
+            <div class="col-xs-2 col-md-1">
+                @using (Html.BeginForm("ActivarDesactivarPaciente", "Paciente"))
+                {
+                    <input id="idEntidadPersonaAD" name="idEntidadPersona" type="hidden" />
+                    @(Html.Kendo().Button()
+                          .Name("btnActivarDesactivar")
+                          .Content(@<text>
+                                       <img src="@Url.Content("~/Content/IconosSistema/trash-circle-red-128.png")" width="20"/>
+                                    </text>)
+                          .HtmlAttributes(new { type = "button" })
+                          )
+                }
+                @Html.Kendo().Tooltip().For("#btnActivarDesactivar").Content(ResourceLayout.ActivarDesactivar + " " + ResourceLayout.Paciente).Position(TooltipPosition.Top)
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        @(Html.Kendo().Grid<PacienteTitularModel>()
+              .Name("GridPacientes")
+              .Columns(colums =>
+              {
+                  colums.Bound(b => b.IdEntidadPersona).Hidden();
+                  colums.Bound(b => b.NombresApellidos);
+                  colums.Bound(b => b.NombreGenero);
+                  colums.Bound(b => b.EsActivo).ClientTemplate("#if(EsActivo){#Si#}else{#No#}#");
+              })
+              .Pageable(pageable => pageable
+                  .Refresh(true)
+                  .ButtonCount(5)
+                  .Messages(message =>
+                  {
+                      message.Empty(ResourceLayout.EmptyDatos);
+                      message.Display(ResourceLayout.DisplayDatos);
+                      message.Refresh(ResourceLayout.Recargar);
+                      message.First(ResourceLayout.First);
+                      message.Last(ResourceLayout.Last);
+                      message.Previous(ResourceLayout.Previous);
+                      message.Next(ResourceLayout.Next);
+                  })
+              )
+              .Events(events => events.Change("onChange"))
+              .Selectable(select => select.Mode(GridSelectionMode.Single))
+              .DataSource(source => source
+                  .Ajax()
+                  .PageSize(5)
+                  .Read(read => read.Action("LeerPacientesEntidadPersonaPadre", "Paciente"))
+              ))
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        Restablecer();
+
+        $("#btnVer").click(function () {
+            var sol = ObtenerIdEntidadPersona();
+            if (sol == null) return;
+            $("#idEntidadPersonaV").val(sol);
+            $(this).parents('form').submit();
+        });
+
+        $("#btnEditar").click(function () {
+            var sol = ObtenerIdEntidadPersona();
+            if (sol == null) return;
+            $("#idEntidadPersonaE").val(sol);
+            $(this).parents('form').submit();
+        });
+
+        $("#btnActivarDesactivar").click(function () {
+            var sol = ObtenerIdEntidadPersona();
+            if (sol == null) return;
+            $("#idEntidadPersonaAD").val(sol);
+            $(this).parents('form').submit();
+        });
+
+    });
+    
+
+    function Restablecer() {
+        $("#txtNombres").val("");
+        $("#btnVer").data("kendoButton").enable(false);
+        $("#btnEditar").data("kendoButton").enable(false);
+        $("#btnActivarDesactivar").data("kendoButton").enable(false);
+
+        var $filter = new Array();
+        var grid = $("#GridPacientes").data("kendoGrid");
+        grid.dataSource.filter($filter);
+    }
+
+    function ObtenerIdEntidadPersona() {
+        var entityGrid = $("#GridPacientes").data("kendoGrid");
+        var selectedItem = entityGrid.dataItem(entityGrid.select());
+        if (selectedItem == null) return null;
+        var id = selectedItem.IdEntidadPersona;
+        return id;
+    }
+
+    function buscar() {
+        var $filter = new Array();
+
+        var $nombres = $("#txtNombres").val();
+        
+        if ($nombres != "") {
+            $filter.push({ field: "NombresApellidos", operator: "contains", value: $nombres });
+        }
+
+        var grid = $("#GridPacientes").data("kendoGrid");
+        grid.dataSource.filter($filter);
+    }
+
+    function onChange(arg) {
+        $("#btnVer").data("kendoButton").enable(true);
+        $("#btnEditar").data("kendoButton").enable(true);
+        $("#btnActivarDesactivar").data("kendoButton").enable(true);
+    };
+</script>

@@ -1,0 +1,7 @@
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Model\bin\Debug\VYMSolucion.Model.dll
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Model\bin\Debug\VYMSolucion.Model.pdb
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Model\obj\Debug\VYMSolucion.Model.Properties.ResourcesMensajes.resources
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Model\obj\Debug\VYMSolucion.Model.Properties.ResourcesModel.resources
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Model\obj\Debug\VYMSolucion.Model.csproj.GenerateResource.Cache
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Model\obj\Debug\VYMSolucion.Model.dll
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Model\obj\Debug\VYMSolucion.Model.pdb

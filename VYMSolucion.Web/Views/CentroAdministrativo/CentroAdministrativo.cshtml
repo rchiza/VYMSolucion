@@ -1,0 +1,212 @@
+﻿@using Resources
+@using VYMSolucion.Web.UtilitariosWeb
+@model VYMSolucion.Model.CentroAdministrativoModel
+
+
+<h2>@ResourceComun.CentrosAdministrativos</h2>
+<br/>
+
+@{
+    string action = ViewData["action"].ToString();
+    string title = "";
+    if (action == "Crear")
+    { title = ResourceComun.Nuevo + " " + ResourceComun.CentrosAdministrativos; }
+    if (action == "Editar")
+    { title = ResourceComun.Editar + " " + ResourceComun.CentrosAdministrativos; }
+    if (action == "Ver")
+    { title = ResourceComun.Ver + " " + ResourceComun.CentrosAdministrativos; }
+    if (action == "Eliminar")
+    { title = ResourceComun.Eliminar + " " + ResourceComun.CentrosAdministrativos; }
+
+    ViewBag.Title = title;
+    var readOnly = (bool) ((bool?) ViewData["ReadOnly"]);
+    
+
+}
+
+@{ Html.EnableClientValidation(); }
+@using (Html.BeginForm("CentroAdministrativo", "CentroAdministrativo"))
+{
+    
+    @Html.ValidationSummary(true)
+    <br/>
+    <fieldset>
+        <table>
+            <tr>
+                <td style="width: 150px;">@Html.LabelFor(p => p.Nombre) :</td>
+                <td style="width: 5px;"><strong style="color: red">* </strong></td>
+                <td style="width: 350px;">
+                    @Html.Kendo().TextBoxFor(tb => tb.Nombre).HtmlAttributes(new {@style = "width: 350px; ", @maxlength = 100, autocomplete = "off"})
+                </td>
+                <td style="width: 300px;">
+                    <span>@Html.ValidationMessageFor(p => p.Nombre)</span>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(p => p.Descripcion) :</td>
+                <td><strong style="color: red">* </strong></td>
+                <td>
+                    @Html.Kendo().TextBoxFor(tb => tb.Descripcion).HtmlAttributes(new {@style = "width: 350px; ", @maxlength = 200, autocomplete = "off"})
+                </td>
+                <td>
+                    <span>@Html.ValidationMessageFor(p => p.Descripcion)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <td>@Html.LabelFor(p => p.IdUbicacionGeografica) :</td>
+                <td><strong style="color: red">* </strong></td>
+                <td >
+                    @(Html.Kendo().DropDownListFor(ddl => ddl.IdPais)
+                          .OptionLabel(ResourceComun.Seleccione)
+                          .DataValueField("Id")
+                          .DataTextField("Nombre")
+                          .DataSource(source => source.Read(read => read.Action("ListaTodasUbicacionGeografica", "Catalogo")))
+                          )
+                    <br/>
+                    @(Html.Kendo().DropDownListFor(ddl => ddl.IdProvincia)
+                          .OptionLabel(ResourceComun.Seleccione)
+                          .DataValueField("Id")
+                          .DataTextField("Nombre")
+                          .DataSource(source => source.Read(read => read
+                              .Action("ListaTodasUbicacionGeograficaHijo", "Catalogo")
+                              .Data("ObtenerIdUbicacionGeograficaPadre"))
+                              .ServerFiltering(true))
+                          .Enable(false)
+                          .AutoBind(false)
+                          .Events(events =>
+                          {
+                              if (readOnly)
+                              {
+                                  events.DataBound("DesactivarDropDownList");
+                              }
+
+                          })
+                          .CascadeFrom("IdPais"))
+                    <br/>
+                    @(Html.Kendo().DropDownListFor(ddl => ddl.IdUbicacionGeografica)
+                          .OptionLabel(ResourceComun.Seleccione)
+                          .DataValueField("Id")
+                          .DataTextField("Nombre")
+                          .DataSource(source => source.Read(read => read
+                              .Action("ListaTodasUbicacionGeograficaHijo", "Catalogo")
+                              .Data("ObtenerIdUbicacionGeograficaPadreHijo"))
+                              .ServerFiltering(true))
+                          .Enable(false)
+                          .AutoBind(false)
+                          .Events(events =>
+                          {
+                              if (readOnly)
+                              {
+                                  events.DataBound("DesactivarDropDownList");
+                              }
+
+                          })
+                          .CascadeFrom("IdProvincia"))
+                </td>
+                <td>
+                    <span>@Html.ValidationMessageFor(p => p.IdUbicacionGeografica)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <td>@Html.LabelFor(p => p.Direccion) :</td>
+                <td><strong style="color: red">* </strong></td>
+                <td>
+                    @Html.Kendo().TextBoxFor(tb => tb.Direccion).HtmlAttributes(new {@style = "width: 350px; ", @maxlength = 200, autocomplete = "off"})
+                </td>
+                <td>
+                    <span>@Html.ValidationMessageFor(p => p.Direccion)</span>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(p => p.Telefono) :</td>
+                <td><strong style="color: red">* </strong></td>
+                <td>
+                    @Html.Kendo().TextBoxFor(tb => tb.Telefono).HtmlAttributes(new {@style = "width: 350px; ", @maxlength = 20, autocomplete = "off"})
+                </td>
+                <td>
+                    <span>@Html.ValidationMessageFor(p => p.Telefono)</span>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(p => p.UrlMapa) :</td>
+                <td><strong style="color: red">* </strong></td>
+                <td>
+                    @Html.Kendo().TextBoxFor(tb => tb.UrlMapa).HtmlAttributes(new {@style = "width: 350px; ", @maxlength = 500, autocomplete = "off"})
+                </td>
+                <td>
+                    <span>@Html.ValidationMessageFor(p => p.UrlMapa)</span>
+                </td>
+            </tr>
+        </table>
+        @Html.HiddenFor(h => h.IdCentroAdministrativo)
+        @Html.HiddenFor(h => h.EsEliminar)
+        <div>
+            @(Html.Kendo().Button()
+                .Name("btnRegresar")
+                .Content(ResourceComun.Regresar)
+                .HtmlAttributes(new {type = "button"})
+                .Events(events => events.Click("RegesarCentroAdministrativo"))
+                )
+
+
+            @{
+                //validación para elementos de solo lectura
+                if (!Html.CheckIsReadOnly())
+                {
+                    @(Html.Kendo().Button()
+                        .Name("btnGuardar")
+                        .Content(ResourceComun.Guardar)
+                        )
+                }
+
+            }
+
+        </div>
+    </fieldset>
+    
+}
+
+<script>
+    $(document).ready(function() {
+        @{
+            //valida si los elementos deben ser de solo lectura
+            if (readOnly)
+            {
+                <text>
+                    $("#Nombre").attr("disabled", "disabled");
+                    $("#Descripcion").attr("disabled", "disabled");
+                    $("#Direccion").attr("disabled", "disabled");
+                    $("#Telefono").attr("disabled", "disabled");
+                    $("#UrlMapa").attr("disabled", "disabled");
+                    $("#IdPais").data("kendoDropDownList").enable(false);
+                </text>
+            }
+        }
+    });
+    //Obtiene el valor seleccionado del combo País para el combo Provincia
+    function ObtenerIdUbicacionGeograficaPadre() {
+        return {
+            idPadre: $("#IdPais").val()
+        }
+    }
+
+    //Obtiene el valor seleccionado del combo Provincia para el combo Ciudad
+    function ObtenerIdUbicacionGeograficaPadreHijo() {
+        return {
+            idPadre: $("#IdProvincia").val()
+        }
+    }
+
+    //Desactiva los DropDawList cascade
+    function DesactivarDropDownList() {
+        $("#IdUbicacionGeografica").data("kendoDropDownList").enable(false);
+        $("#IdProvincia").data("kendoDropDownList").enable(false);
+    }
+
+    //Regresa a la pantalla principal
+    function RegesarCentroAdministrativo() {
+        window.location = '@Url.Action("Index", "CentroAdministrativo")';
+    }
+</script>

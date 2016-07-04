@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServiceCatalogo" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost/VYMSolucion.Service/ServiceCatalogo.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost/VYMSolucion.Service/ServiceCatalogo.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost/VYMSolucion.Service/ServiceCatalogo.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/VYMSolucion.Model" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServiceCatalogo_ListaGenero_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaGenero" />
+  </wsdl:message>
+  <wsdl:message name="IServiceCatalogo_ListaGenero_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaGeneroResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceCatalogo_ListaEstadoCivil_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaEstadoCivil" />
+  </wsdl:message>
+  <wsdl:message name="IServiceCatalogo_ListaEstadoCivil_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaEstadoCivilResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceCatalogo_ListaPerfiles_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaPerfiles" />
+  </wsdl:message>
+  <wsdl:message name="IServiceCatalogo_ListaPerfiles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaPerfilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceCatalogo_ListaTipoSangre_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaTipoSangre" />
+  </wsdl:message>
+  <wsdl:message name="IServiceCatalogo_ListaTipoSangre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaTipoSangreResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceCatalogo_ListaParentesco_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaParentesco" />
+  </wsdl:message>
+  <wsdl:message name="IServiceCatalogo_ListaParentesco_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaParentescoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceCatalogo_ListaFechaDias_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaFechaDias" />
+  </wsdl:message>
+  <wsdl:message name="IServiceCatalogo_ListaFechaDias_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaFechaDiasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceCatalogo_ListaFechaMeses_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaFechaMeses" />
+  </wsdl:message>
+  <wsdl:message name="IServiceCatalogo_ListaFechaMeses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaFechaMesesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceCatalogo_ListaFechaAnios_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaFechaAnios" />
+  </wsdl:message>
+  <wsdl:message name="IServiceCatalogo_ListaFechaAnios_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaFechaAniosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceCatalogo_ListaFechaAniosMenorEdad_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaFechaAniosMenorEdad" />
+  </wsdl:message>
+  <wsdl:message name="IServiceCatalogo_ListaFechaAniosMenorEdad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaFechaAniosMenorEdadResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServiceCatalogo">
+    <wsdl:operation name="ListaGenero">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceCatalogo/ListaGenero" message="tns:IServiceCatalogo_ListaGenero_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceCatalogo/ListaGeneroResponse" message="tns:IServiceCatalogo_ListaGenero_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaEstadoCivil">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceCatalogo/ListaEstadoCivil" message="tns:IServiceCatalogo_ListaEstadoCivil_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceCatalogo/ListaEstadoCivilResponse" message="tns:IServiceCatalogo_ListaEstadoCivil_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaPerfiles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceCatalogo/ListaPerfiles" message="tns:IServiceCatalogo_ListaPerfiles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceCatalogo/ListaPerfilesResponse" message="tns:IServiceCatalogo_ListaPerfiles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaTipoSangre">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceCatalogo/ListaTipoSangre" message="tns:IServiceCatalogo_ListaTipoSangre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceCatalogo/ListaTipoSangreResponse" message="tns:IServiceCatalogo_ListaTipoSangre_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaParentesco">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceCatalogo/ListaParentesco" message="tns:IServiceCatalogo_ListaParentesco_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceCatalogo/ListaParentescoResponse" message="tns:IServiceCatalogo_ListaParentesco_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaFechaDias">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceCatalogo/ListaFechaDias" message="tns:IServiceCatalogo_ListaFechaDias_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceCatalogo/ListaFechaDiasResponse" message="tns:IServiceCatalogo_ListaFechaDias_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaFechaMeses">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceCatalogo/ListaFechaMeses" message="tns:IServiceCatalogo_ListaFechaMeses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceCatalogo/ListaFechaMesesResponse" message="tns:IServiceCatalogo_ListaFechaMeses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaFechaAnios">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceCatalogo/ListaFechaAnios" message="tns:IServiceCatalogo_ListaFechaAnios_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceCatalogo/ListaFechaAniosResponse" message="tns:IServiceCatalogo_ListaFechaAnios_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaFechaAniosMenorEdad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceCatalogo/ListaFechaAniosMenorEdad" message="tns:IServiceCatalogo_ListaFechaAniosMenorEdad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceCatalogo/ListaFechaAniosMenorEdadResponse" message="tns:IServiceCatalogo_ListaFechaAniosMenorEdad_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServiceCatalogo" type="tns:IServiceCatalogo">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListaGenero">
+      <soap:operation soapAction="http://tempuri.org/IServiceCatalogo/ListaGenero" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaEstadoCivil">
+      <soap:operation soapAction="http://tempuri.org/IServiceCatalogo/ListaEstadoCivil" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaPerfiles">
+      <soap:operation soapAction="http://tempuri.org/IServiceCatalogo/ListaPerfiles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaTipoSangre">
+      <soap:operation soapAction="http://tempuri.org/IServiceCatalogo/ListaTipoSangre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaParentesco">
+      <soap:operation soapAction="http://tempuri.org/IServiceCatalogo/ListaParentesco" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaFechaDias">
+      <soap:operation soapAction="http://tempuri.org/IServiceCatalogo/ListaFechaDias" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaFechaMeses">
+      <soap:operation soapAction="http://tempuri.org/IServiceCatalogo/ListaFechaMeses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaFechaAnios">
+      <soap:operation soapAction="http://tempuri.org/IServiceCatalogo/ListaFechaAnios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaFechaAniosMenorEdad">
+      <soap:operation soapAction="http://tempuri.org/IServiceCatalogo/ListaFechaAniosMenorEdad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceCatalogo">
+    <wsdl:port name="BasicHttpBinding_IServiceCatalogo" binding="tns:BasicHttpBinding_IServiceCatalogo">
+      <soap:address location="http://localhost/VYMSolucion.Service/ServiceCatalogo.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

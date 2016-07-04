@@ -1,0 +1,10 @@
+﻿@{
+    if (Request.IsAuthenticated && string.IsNullOrEmpty(@User.Identity.Name) == false)
+    {
+        Layout = "~/Views/Shared/_LayoutGeneral.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+}

@@ -1,0 +1,9 @@
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Data\bin\Debug\VYMSolucion.Data.dll.config
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Data\bin\Debug\VYMSolucion.Data.dll
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Data\bin\Debug\VYMSolucion.Data.pdb
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Data\bin\Debug\EntityFramework.dll
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Data\bin\Debug\EntityFramework.xml
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Data\obj\Debug\VYMSolucion.Data.dll
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Data\obj\Debug\VYMSolucion.Data.pdb

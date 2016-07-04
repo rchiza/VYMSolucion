@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7191d0d03a1a46cb8b484c71ae418249" Name="Diagram1" ZoomLevel="84">
+        <EntityTypeShape EntityType="VYMCoreModel.ActivacionUsuario" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="VYMCoreModel.Catalogo" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="VYMCoreModel.CentroAdministrativo" Width="1.5" PointX="3" PointY="14.25" />
+        <EntityTypeShape EntityType="VYMCoreModel.UbicacionGeografica" Width="1.5" PointX="0.75" PointY="9.125" />
+        <EntityTypeShape EntityType="VYMCoreModel.AntecedentesPatologicosOAlergia" Width="1.5" PointX="5.25" PointY="13" />
+        <EntityTypeShape EntityType="VYMCoreModel.EntidadPersona" Width="1.5" PointX="3" PointY="3.75" />
+        <EntityTypeShape EntityType="VYMCoreModel.PerfilProfesional" Width="1.5" PointX="5.25" PointY="4.875" />
+        <EntityTypeShape EntityType="VYMCoreModel.PerfilUsuario" Width="1.5" PointX="5.25" PointY="9.5" />
+        <EntityTypeShape EntityType="VYMCoreModel.AgendaEntidadPersona" Width="1.5" PointX="8.25" PointY="8.625" />
+        <AssociationConnector Association="VYMCoreModel.FK__Catalogo__IdCata__2F10007B" />
+        <AssociationConnector Association="VYMCoreModel.FK__AgendaEnt__IdCen__72C60C4A" />
+        <AssociationConnector Association="VYMCoreModel.FK__CentroAdm__IdCen__2D27B809" />
+        <AssociationConnector Association="VYMCoreModel.FK__CentroAdm__IdUbi__060DEAE8" />
+        <AssociationConnector Association="VYMCoreModel.FK__EntidadPe__IdUbi__628FA481" />
+        <AssociationConnector Association="VYMCoreModel.FK__EntidadPe__IdUbi__6383C8BA" />
+        <AssociationConnector Association="VYMCoreModel.FK__PerfilPro__IdUbi__6E01572D" />
+        <AssociationConnector Association="VYMCoreModel.FK__Ubicacion__IdUbi__300424B4" />
+        <AssociationConnector Association="VYMCoreModel.FK__Anteceden__IdEnt__6754599E" />
+        <AssociationConnector Association="VYMCoreModel.FK__AgendaEnt__IdEnt__70DDC3D8" />
+        <AssociationConnector Association="VYMCoreModel.FK__AgendaEnt__IdEnt__71D1E811" />
+        <AssociationConnector Association="VYMCoreModel.FK__EntidadPe__IdEnt__6477ECF3" />
+        <AssociationConnector Association="VYMCoreModel.FK__PerfilPro__IdEnt__6D0D32F4" />
+        <AssociationConnector Association="VYMCoreModel.FK__PerfilUsu__IdEnt__6A30C649" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

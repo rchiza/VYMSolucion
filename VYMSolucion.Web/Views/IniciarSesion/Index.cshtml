@@ -1,0 +1,80 @@
+﻿@using Resources
+@model VYMSolucion.Model.IniciarSesionModel
+@{
+    ViewBag.Title = ResourceLayout.IniciarSesion;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="jumbotron vertical-center">
+    <!--
+    ^--- Added class  -->
+    <div class="container" style="max-width: 450px; ">
+
+        <div style="align-content: center;">
+            <div class="widget-search-causes">
+                <div class="box-wrapper">
+                    <div class="box">
+                        @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+                        {
+                            <!-- widget title -->
+                            <div class="widget-title">
+                                <h5>@ResourceLayout.IniciarSesion</h5>
+                                <p>@ResourceLayout.IngresarCredenciales</p>
+                            </div>
+                            <!-- .widget title -->
+                            <!-- widget box -->
+                            <div class="widget-box">
+                                <div class="input-group">
+                                    @(Html.TextBoxFor(tb => tb.Usuario, null, new { @class = "form-control", placeholder = @ResourceLayout.Usuario, autocomplete = "off" })
+                                    )
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-user"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <!-- .widget box -->
+                            <!-- widget box -->
+                            <div class="widget-box">
+                                <div class="input-group">
+                                    @(Html.PasswordFor(p => p.Contrasena, new { @class = "form-control", placeholder = @ResourceLayout.Contrasena, autocomplete = "new-password" })
+                                    )
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-key"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <!-- .widget box -->
+                            <!-- widget box -->
+                            <div class="widget-box dropdown">
+                                @(Html.Kendo()
+                                      .Button()
+                                      .Name("btnIniciar")
+                                      .HtmlAttributes(new { @class = "button-normal full white" })
+                                      .Content(ResourceLayout.Iniciar)
+                                )
+                                <!-- .widget-box -->
+                            </div>
+                            <div class="widget-box">
+                                <div class="input-group">
+                                    <span class="error-span-ValidarUsuario" id="ValidarUsuario">
+                                        @Html.ValidationMessage("ValidarUsuario")
+                                    </span>
+                                </div>
+                            </div>
+
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<br />
+<script>
+    $(document).ready(function() {
+        
+        var form = document;
+        validarCustomInputs(form);
+    });
+</script>
+

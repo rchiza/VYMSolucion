@@ -1,0 +1,57 @@
+﻿@using Resources
+
+@{
+    ViewBag.Title = ResourceLayout.Paciente;
+}
+
+
+
+<div class="row">
+    <div class="col-md-offset-2">
+        <div class="row">
+            <!-- 1 -->
+            <div class="col-md-5 box">
+                <div class="promo-box-button-icono">
+                    @(Html.Kendo().Button()
+                        .Name("btnRegistrarPaciente")
+                          .Content(@<text>
+                            <i class="fa"><img src="@Url.Content("~/Content/IconosSistema/add-circle-blue-128.png")"/></i>
+                            <h3>@ResourceLayout.Nuevo @ResourceLayout.Paciente</h3>
+                            <hr />
+                            <p>@ResourceLayout.MensajeRegistroPaciente.</p>
+                        </text>)
+                        .HtmlAttributes(new { type = "button", style = "width: 100%;" })
+                        .Events(e => e.Click("ClickVistaNuevoPaciente"))
+                    )
+                </div>
+            </div>
+            <!-- .1 -->
+            <!-- 2 -->
+            <div class="col-md-5 box">
+                <div class="promo-box-button-icono">
+                    @(Html.Kendo().Button()
+                        .Name("btnBuscarPaciente")
+                          .Content(@<text>
+                            <i class="fa"><img src="@Url.Content("~/Content/IconosSistema/search-circle-blue-128.png")" /></i>
+                            <h3>@ResourceLayout.Buscar @ResourceLayout.Paciente</h3>
+                            <hr />
+                            <p>@ResourceLayout.MensajeBuscarDatosPaciente.</p>
+                        </text>)
+                        .HtmlAttributes(new { type = "button", style = "width: 100%;" })
+                        .Events(e => e.Click("ClickVistaBuscarPaciente"))
+                    )
+                </div>
+            </div>
+            <!-- .2 -->
+        </div>
+    </div>
+</div>
+<script>
+    function ClickVistaNuevoPaciente() {
+        window.location.href = '@Url.Action("NuevoPaciente","Paciente")';
+    }
+
+    function ClickVistaBuscarPaciente() {
+        window.location.href = '@Url.Action("BuscarPaciente","Paciente")';
+    }
+</script>

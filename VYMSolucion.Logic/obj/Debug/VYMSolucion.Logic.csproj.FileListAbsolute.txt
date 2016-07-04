@@ -1,0 +1,16 @@
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Logic\bin\Debug\VYMSolucion.Logic.dll.config
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Logic\bin\Debug\VYMSolucion.Logic.dll
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Logic\bin\Debug\VYMSolucion.Logic.pdb
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Logic\bin\Debug\EntityFramework.dll
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Logic\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Logic\bin\Debug\VYMSolucion.Data.dll
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Logic\bin\Debug\VYMSolucion.Model.dll
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Logic\bin\Debug\VYMSolucion.Data.pdb
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Logic\bin\Debug\VYMSolucion.Model.pdb
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Logic\bin\Debug\EntityFramework.xml
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Logic\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Logic\obj\Debug\VYMSolucion.Logic.csprojResolveAssemblyReference.cache
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Logic\obj\Debug\VYMSolucion.Logic.dll
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Logic\obj\Debug\VYMSolucion.Logic.pdb
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Logic\bin\Debug\VYMSolucion.Comun.dll
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Logic\bin\Debug\VYMSolucion.Comun.pdb

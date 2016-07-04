@@ -1,0 +1,316 @@
+﻿@using Resources
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- Title -->
+    <title>@ViewBag.Title - @ResourceLayout.NombreEmpresa</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="@Url.Content("~/Content/images/favico.png")">
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- Bootstrap -->
+    <link href="@Url.Content("~/Content/css/bootstrap.min.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/css/font-awesome.min.css")" rel="stylesheet">
+    <!-- Lightbox -->
+    <link href="@Url.Content("~/Content/css/ekko-lightbox.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/css/dark.css")" rel="stylesheet">
+    <!-- Calendar -->
+    <link href="@Url.Content("~/Content/css/zabuto_calendar.min.css")" rel="stylesheet">
+    <!-- Template -->
+    <link href="@Url.Content("~/Content/style.css")" rel="stylesheet">
+    <!-- Custom Color -->
+    <link href="@Url.Content("~/Content/css/color.css")" rel="stylesheet">
+    <!-- Custom Box -->
+    <link href="@Url.Content("~/Content/css/box.css")" rel="stylesheet">
+
+
+
+    <!--Css de kendo telerik-->
+    <link href="@Url.Content("~/Content/kendo/2015.2.902/kendo.common-material.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2015.2.902/kendo.mobile.all.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2015.2.902/kendo.dataviz.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2015.2.902/kendo.material.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2015.2.902/kendo.material.mobile.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2015.2.902/kendo.dataviz.material.min.css")" rel="stylesheet" type="text/css" />
+
+    <!--Script de kendo telerik-->
+    <script src="@Url.Content("~/Scripts/kendo/2015.2.902/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2015.2.902/jszip.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2015.2.902/kendo.all.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2015.2.902/kendo.aspnetmvc.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo.modernizr.custom.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2015.2.902/cultures/kendo.culture.es-EC.min.js")"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js">
+    </script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js">
+    </script>
+    <![endif]-->
+</head>
+<body>
+    @*preloader*@
+    <div class='preloader'>
+        <div class="preloader-content-wrapper">
+            <div class="preloader-content">
+                <i class="fa fa-cog fa-3x fa-spin"></i>
+            </div>
+        </div>
+    </div>
+    <!-- .preloader -->
+    <!-- top bar -->
+    <header class="top-bar">
+        <div class="container">
+            <div class="row">
+                <!-- languages -->
+                <div class="col-md-4 col-xs-6">
+                    <div class="languages nav-root">
+                        <!-- trigger -->
+                        <div class="pt-nav-trigger">
+                            <button>
+                                <i class="fa fa-globe"></i> @ResourceLayout.Espanol <i class="fa fa-angle-down"></i>
+                            </button>
+                        </div>
+                        <!-- trigger -->
+                        <!-- menu list -->
+                        <nav class="pt-nav">
+                            <ul>
+                                <li>
+                                    <a href="#"><i class="fa fa-globe"></i> @ResourceLayout.Espanol <i class="fa fa-angle-down"></i></a>
+                                    @*<ul>
+                                            <li>
+                                                <a href="#">Netherland</a>
+                                            </li>
+                                        </ul>*@
+                                </li>
+                            </ul>
+                            <!-- .menu list -->
+                        </nav>
+                    </div>
+                </div>
+                <!-- .languages -->
+                <!-- add info -->
+                <div class="col-md-8 col-xs-12 clearfix">
+                    <div class="add-info">
+                        <!-- menu list -->
+                        <nav>
+                            <ul class="list-inline">
+                                <li>
+                                    <a href="#"><i class="fa fa-phone"></i> @ResourceLayout.TelefonoEmpresa</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-envelope-o"></i> @ResourceLayout.CorreoEmpresa</a>
+                                </li>
+                            </ul>
+                            <!-- .menu list -->
+                        </nav>
+                    </div>
+                </div>
+                <!-- .add info -->
+            </div>
+        </div>
+    </header>
+    <!-- .top bar -->
+    <!-- main header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="row">
+                <!-- logo -->
+                <div class="col-md-2">
+                    <div class="logo">
+                        <a href="#">
+                            <img src="@Url.Content("~/Content/images/logo.png")" title="@ResourceLayout.NombreEmpresa" alt="GoRise" />
+                        </a>
+                    </div>
+                </div>
+                <!-- .logo -->
+                <!-- main nav -->
+                <div class="col-md-10">
+                    <div class="main-nav nav-root">
+                        <!-- trigger -->
+                        <div class="pt-nav-trigger">
+                            <button>
+                                <i class="fa fa-bars"></i>Navigation
+                            </button>
+                        </div>
+                        <!-- trigger -->
+                        <nav class="pt-nav clearfix">
+
+                            <!-- menu list -->
+                            <ul class="clearfix" style="overflow-y: hidden;">
+                                <li>
+                                    @Html.ActionLink(ResourceLayout.Inicio, "Index", "Home")
+                                    @*<a href="#">@ResourceLayout.Inicio</a>*@
+                                    @*<ul>
+                                            <li>
+                                                <a href="index.html">Home 1</a>
+                                            </li>
+                                        </ul>*@
+                                </li>
+                                @*<li class="button">
+                                        @Html.ActionLink(ResourceLayout.IniciarSesion, "Index", "IniciarSesion")
+                                    </li>
+                                    <li class="button">
+                                        @Html.ActionLink(ResourceLayout.Registrarse, "Index", "Registrarse")
+                                    </li>*@
+                                @if (Request.IsAuthenticated && string.IsNullOrEmpty(@User.Identity.Name) == false)
+                                {
+                                    <text>
+                                        <li class="button">
+                                            @using (Html.BeginForm("LogOff", "IniciarSesion", FormMethod.Post, new { id = "logoutForm" }))
+                                            {
+                                                @*@Html.AntiForgeryToken()*@
+                                                <a href="javascript:document.getElementById('logoutForm').submit()">@ResourceLayout.CerrarSesion</a>
+                                            }
+                                        </li>
+                                        <li class="button">
+                                            <p align="center">
+                                                @ResourceLayout.Bienvenido
+                                                <br />
+                                                <strong>@User.Identity.Name.Split(';')[1]</strong>
+                                            </p>
+
+                                        </li>
+                                    </text>
+                                }
+                            </ul>
+                            <!-- .menu list -->
+                        </nav>
+                    </div>
+                </div>
+                <!-- .main nav -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Contente -->
+    <section class="breadcrumbs">
+        <div class="breadcrumbs-wrapper">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <!-- archives widget -->
+                        <div class="widget">
+                            <div class="widget-search-causes">
+                                    <div class="box">
+                                        <!-- widget title -->
+                                        <div class="widget-title">
+                                            <h5>@ResourceLayout.MenuDel @User.Identity.Name.Split(';')[3]</h5>
+                                        </div>
+                                        <!-- .widget title -->
+                                        <!-- widget box -->
+                                        <div class="widget-box">
+                                            <ul class="list-unstyled">
+                                                <li>
+                                                    <a href="@Url.Action("Index","Paciente")">@ResourceLayout.Registrar @ResourceLayout.Paciente <i class="fa fa-angle-right pull-right"></i></a>
+                                                </li>
+                                                
+                                            </ul>
+                                        </div>
+                                        <!-- .widget box -->
+                                    </div>
+                            </div>
+                        </div>
+                        <!-- .archives widget -->
+                    </div>
+
+                    <div class="col-md-9">
+                            <div class="box">
+
+                                <div class="content">
+                                    @RenderSection("featured", required: false)
+                                    <section class="content-wrapper main-content clear-fix">
+                                        @RenderBody()
+                                    </section>
+                                </div>
+                            </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+    <!-- .Contente -->
+    <!-- logo & social -->
+    <section class="blue-background">
+        <div class="container">
+            <div class="row">
+                <!-- logo -->
+                <div class="col-md-6 col-xs-6 text-left">
+                    <div class="logo-white">
+                        <a href="#">
+                            <img src="@Url.Content("~/Content/images/logo_white.png")" title="" alt="" />
+                        </a>
+                    </div>
+                </div>
+                <!-- .logo -->
+                <!-- social -->
+                <div class="col-md-6 col-xs-6 text-right">
+                    <ul class="social list-inline list-unstyled">
+                        <li>
+                            <a href="#"><i class="fa fa-twitter-square"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-facebook-square"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-google-plus-square"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- .social -->
+            </div>
+        </div>
+    </section>
+    <!-- .logo & social -->
+    <!-- footer -->
+    <footer class="dark-background">
+        <div class="container">
+            <div class="row">
+                <!-- footer menu -->
+                <div class="col-md-6 col-xs-6 text-left">
+                    <ul class="list-unstyled list-inline">
+                        <li>
+                            @Html.ActionLink(ResourceLayout.Inicio, "Index", "Home")
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- footer menu -->
+                <!-- copyrights -->
+                <div class="col-md-6 col-xs-6 text-right">
+                    <p>&copy; @DateTime.Now.Year VYM Solución - Todos los derechos reservados</p>
+                </div>
+                <!-- .copyrights -->
+            </div>
+        </div>
+    </footer>
+    <!-- .footer -->
+    <!-- jQuery (necessary for Bootstrap 's JavaScript plugins) -->
+    @*<script src="@Url.Content("~/Content/js/jquery-1.11.1.min.js")"></script>*@
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="@Url.Content("~/Content/js/jquery.nicescroll.min.js")"></script>
+    <script src="@Url.Content("~/Content/js/bootstrap.min.js")"></script>
+    <!-- Include all template custom js -->
+    <script src="@Url.Content("~/Content/js/jquery.downCount.js")"></script>
+    <script src="@Url.Content("~/Content/js/bootstrap-slider.js")"></script>
+    <script src="@Url.Content("~/Content/js/zabuto_calendar.min.js")"></script>
+    <script src="@Url.Content("~/Content/js/ekko-lightbox.js")"></script>
+    <script src="@Url.Content("~/Content/js/custom.js")"></script>
+
+
+</body>
+
+</html>
+@* Llamada a vista comun *@
+@{ Html.RenderPartial("ScriptComun");  }

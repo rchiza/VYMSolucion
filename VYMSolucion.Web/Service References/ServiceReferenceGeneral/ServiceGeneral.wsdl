@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServiceGeneral" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost/VYMSolucion.Service/ServiceGeneral.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost/VYMSolucion.Service/ServiceGeneral.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost/VYMSolucion.Service/ServiceGeneral.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/VYMSolucion.Model" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServiceGeneral_LeerTodosCentroAdministrativo_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeerTodosCentroAdministrativo" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_LeerTodosCentroAdministrativo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeerTodosCentroAdministrativoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_LeerCentroAdministrativo_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeerCentroAdministrativo" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_LeerCentroAdministrativo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeerCentroAdministrativoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_CrearCentroAdministrativo_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearCentroAdministrativo" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_CrearCentroAdministrativo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearCentroAdministrativoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_EditarCentroAdministrativo_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditarCentroAdministrativo" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_EditarCentroAdministrativo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditarCentroAdministrativoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_EliminarCentroAdministrativo_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarCentroAdministrativo" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_EliminarCentroAdministrativo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarCentroAdministrativoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_ListaTodasUbicacionGeografica_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaTodasUbicacionGeografica" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_ListaTodasUbicacionGeografica_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaTodasUbicacionGeograficaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_ListaTodasUbicacionGeograficaHijo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaTodasUbicacionGeograficaHijo" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_ListaTodasUbicacionGeograficaHijo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaTodasUbicacionGeograficaHijoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_ValidarCuentaUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarCuentaUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_ValidarCuentaUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarCuentaUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_ObtenerDatosUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerDatosUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_ObtenerDatosUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerDatosUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_CrearRegistroProfesional_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearRegistroProfesional" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_CrearRegistroProfesional_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearRegistroProfesionalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_CrearRegistroPaciente_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearRegistroPaciente" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_CrearRegistroPaciente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearRegistroPacienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_ActivarCuenta_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActivarCuenta" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_ActivarCuenta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActivarCuentaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_ValidarCorreoRepetido_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarCorreoRepetido" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_ValidarCorreoRepetido_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarCorreoRepetidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_ValidarCedulaRuc_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarCedulaRuc" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_ValidarCedulaRuc_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarCedulaRucResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_CrearPaciente_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearPaciente" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_CrearPaciente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearPacienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_LeerPaciente_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeerPaciente" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_LeerPaciente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeerPacienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_LeerPacientesEntidadPersonaPadre_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeerPacientesEntidadPersonaPadre" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_LeerPacientesEntidadPersonaPadre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeerPacientesEntidadPersonaPadreResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_EditarPaciente_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditarPaciente" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_EditarPaciente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditarPacienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_ActivarDesactivarPaciente_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActivarDesactivarPaciente" />
+  </wsdl:message>
+  <wsdl:message name="IServiceGeneral_ActivarDesactivarPaciente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActivarDesactivarPacienteResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServiceGeneral">
+    <wsdl:operation name="LeerTodosCentroAdministrativo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGeneral/LeerTodosCentroAdministrativo" message="tns:IServiceGeneral_LeerTodosCentroAdministrativo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGeneral/LeerTodosCentroAdministrativoResponse" message="tns:IServiceGeneral_LeerTodosCentroAdministrativo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeerCentroAdministrativo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGeneral/LeerCentroAdministrativo" message="tns:IServiceGeneral_LeerCentroAdministrativo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGeneral/LeerCentroAdministrativoResponse" message="tns:IServiceGeneral_LeerCentroAdministrativo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearCentroAdministrativo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGeneral/CrearCentroAdministrativo" message="tns:IServiceGeneral_CrearCentroAdministrativo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGeneral/CrearCentroAdministrativoResponse" message="tns:IServiceGeneral_CrearCentroAdministrativo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditarCentroAdministrativo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGeneral/EditarCentroAdministrativo" message="tns:IServiceGeneral_EditarCentroAdministrativo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGeneral/EditarCentroAdministrativoResponse" message="tns:IServiceGeneral_EditarCentroAdministrativo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarCentroAdministrativo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGeneral/EliminarCentroAdministrativo" message="tns:IServiceGeneral_EliminarCentroAdministrativo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGeneral/EliminarCentroAdministrativoResponse" message="tns:IServiceGeneral_EliminarCentroAdministrativo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaTodasUbicacionGeografica">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGeneral/ListaTodasUbicacionGeografica" message="tns:IServiceGeneral_ListaTodasUbicacionGeografica_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGeneral/ListaTodasUbicacionGeograficaResponse" message="tns:IServiceGeneral_ListaTodasUbicacionGeografica_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaTodasUbicacionGeograficaHijo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGeneral/ListaTodasUbicacionGeograficaHijo" message="tns:IServiceGeneral_ListaTodasUbicacionGeograficaHijo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGeneral/ListaTodasUbicacionGeograficaHijoResponse" message="tns:IServiceGeneral_ListaTodasUbicacionGeograficaHijo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarCuentaUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGeneral/ValidarCuentaUsuario" message="tns:IServiceGeneral_ValidarCuentaUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGeneral/ValidarCuentaUsuarioResponse" message="tns:IServiceGeneral_ValidarCuentaUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGeneral/ObtenerDatosUsuario" message="tns:IServiceGeneral_ObtenerDatosUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGeneral/ObtenerDatosUsuarioResponse" message="tns:IServiceGeneral_ObtenerDatosUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearRegistroProfesional">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGeneral/CrearRegistroProfesional" message="tns:IServiceGeneral_CrearRegistroProfesional_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGeneral/CrearRegistroProfesionalResponse" message="tns:IServiceGeneral_CrearRegistroProfesional_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearRegistroPaciente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGeneral/CrearRegistroPaciente" message="tns:IServiceGeneral_CrearRegistroPaciente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGeneral/CrearRegistroPacienteResponse" message="tns:IServiceGeneral_CrearRegistroPaciente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActivarCuenta">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGeneral/ActivarCuenta" message="tns:IServiceGeneral_ActivarCuenta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGeneral/ActivarCuentaResponse" message="tns:IServiceGeneral_ActivarCuenta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarCorreoRepetido">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGeneral/ValidarCorreoRepetido" message="tns:IServiceGeneral_ValidarCorreoRepetido_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGeneral/ValidarCorreoRepetidoResponse" message="tns:IServiceGeneral_ValidarCorreoRepetido_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarCedulaRuc">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGeneral/ValidarCedulaRuc" message="tns:IServiceGeneral_ValidarCedulaRuc_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGeneral/ValidarCedulaRucResponse" message="tns:IServiceGeneral_ValidarCedulaRuc_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearPaciente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGeneral/CrearPaciente" message="tns:IServiceGeneral_CrearPaciente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGeneral/CrearPacienteResponse" message="tns:IServiceGeneral_CrearPaciente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeerPaciente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGeneral/LeerPaciente" message="tns:IServiceGeneral_LeerPaciente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGeneral/LeerPacienteResponse" message="tns:IServiceGeneral_LeerPaciente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeerPacientesEntidadPersonaPadre">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGeneral/LeerPacientesEntidadPersonaPadre" message="tns:IServiceGeneral_LeerPacientesEntidadPersonaPadre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGeneral/LeerPacientesEntidadPersonaPadreResponse" message="tns:IServiceGeneral_LeerPacientesEntidadPersonaPadre_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditarPaciente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGeneral/EditarPaciente" message="tns:IServiceGeneral_EditarPaciente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGeneral/EditarPacienteResponse" message="tns:IServiceGeneral_EditarPaciente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActivarDesactivarPaciente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGeneral/ActivarDesactivarPaciente" message="tns:IServiceGeneral_ActivarDesactivarPaciente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGeneral/ActivarDesactivarPacienteResponse" message="tns:IServiceGeneral_ActivarDesactivarPaciente_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServiceGeneral" type="tns:IServiceGeneral">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LeerTodosCentroAdministrativo">
+      <soap:operation soapAction="http://tempuri.org/IServiceGeneral/LeerTodosCentroAdministrativo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeerCentroAdministrativo">
+      <soap:operation soapAction="http://tempuri.org/IServiceGeneral/LeerCentroAdministrativo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearCentroAdministrativo">
+      <soap:operation soapAction="http://tempuri.org/IServiceGeneral/CrearCentroAdministrativo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditarCentroAdministrativo">
+      <soap:operation soapAction="http://tempuri.org/IServiceGeneral/EditarCentroAdministrativo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarCentroAdministrativo">
+      <soap:operation soapAction="http://tempuri.org/IServiceGeneral/EliminarCentroAdministrativo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaTodasUbicacionGeografica">
+      <soap:operation soapAction="http://tempuri.org/IServiceGeneral/ListaTodasUbicacionGeografica" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaTodasUbicacionGeograficaHijo">
+      <soap:operation soapAction="http://tempuri.org/IServiceGeneral/ListaTodasUbicacionGeograficaHijo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarCuentaUsuario">
+      <soap:operation soapAction="http://tempuri.org/IServiceGeneral/ValidarCuentaUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosUsuario">
+      <soap:operation soapAction="http://tempuri.org/IServiceGeneral/ObtenerDatosUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearRegistroProfesional">
+      <soap:operation soapAction="http://tempuri.org/IServiceGeneral/CrearRegistroProfesional" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearRegistroPaciente">
+      <soap:operation soapAction="http://tempuri.org/IServiceGeneral/CrearRegistroPaciente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActivarCuenta">
+      <soap:operation soapAction="http://tempuri.org/IServiceGeneral/ActivarCuenta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarCorreoRepetido">
+      <soap:operation soapAction="http://tempuri.org/IServiceGeneral/ValidarCorreoRepetido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarCedulaRuc">
+      <soap:operation soapAction="http://tempuri.org/IServiceGeneral/ValidarCedulaRuc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearPaciente">
+      <soap:operation soapAction="http://tempuri.org/IServiceGeneral/CrearPaciente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeerPaciente">
+      <soap:operation soapAction="http://tempuri.org/IServiceGeneral/LeerPaciente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeerPacientesEntidadPersonaPadre">
+      <soap:operation soapAction="http://tempuri.org/IServiceGeneral/LeerPacientesEntidadPersonaPadre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditarPaciente">
+      <soap:operation soapAction="http://tempuri.org/IServiceGeneral/EditarPaciente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActivarDesactivarPaciente">
+      <soap:operation soapAction="http://tempuri.org/IServiceGeneral/ActivarDesactivarPaciente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceGeneral">
+    <wsdl:port name="BasicHttpBinding_IServiceGeneral" binding="tns:BasicHttpBinding_IServiceGeneral">
+      <soap:address location="http://localhost/VYMSolucion.Service/ServiceGeneral.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

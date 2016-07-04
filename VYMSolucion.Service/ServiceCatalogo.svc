@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="VYMSolucion.Service.ServiceCatalogo" CodeBehind="ServiceCatalogo.svc.cs" %>

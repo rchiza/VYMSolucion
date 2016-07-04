@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="dce3d477-3e54-4fc3-8ed1-7723ebf21581" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/VYMSolucion.Service/ServiceGeneral.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServiceGeneral.disco" MetadataType="Disco" ID="727553f5-e32d-440f-b4bd-87409080462e" SourceId="1" SourceUrl="http://localhost/VYMSolucion.Service/ServiceGeneral.svc?disco" />
+    <MetadataFile FileName="ServiceGeneral.xsd" MetadataType="Schema" ID="e724f5c4-4ee7-49bc-a818-3c1ce33fd4c0" SourceId="1" SourceUrl="http://localhost/VYMSolucion.Service/ServiceGeneral.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServiceGeneral1.xsd" MetadataType="Schema" ID="a8cef765-c138-4733-9585-a0ddfc7f720d" SourceId="1" SourceUrl="http://localhost/VYMSolucion.Service/ServiceGeneral.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServiceGeneral2.xsd" MetadataType="Schema" ID="a1225911-c2a6-49d2-a342-745517dc6322" SourceId="1" SourceUrl="http://localhost/VYMSolucion.Service/ServiceGeneral.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServiceGeneral.wsdl" MetadataType="Wsdl" ID="192f5545-c9f4-4ec3-b2e2-273fa539fe4c" SourceId="1" SourceUrl="http://localhost/VYMSolucion.Service/ServiceGeneral.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

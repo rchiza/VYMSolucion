@@ -1,0 +1,4 @@
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Comun\bin\Debug\VYMSolucion.Comun.dll
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Comun\bin\Debug\VYMSolucion.Comun.pdb
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Comun\obj\Debug\VYMSolucion.Comun.dll
+C:\Users\Roberto\documents\visual studio 2015\Projects\VYMSolucion\VYMSolucion.Comun\obj\Debug\VYMSolucion.Comun.pdb

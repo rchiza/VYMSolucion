@@ -1,0 +1,428 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VYMCoreModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="VYMCoreEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ActivacionUsuarios" EntityType="VYMCoreModel.ActivacionUsuario" />
+    <EntitySet Name="Catalogoes" EntityType="VYMCoreModel.Catalogo" />
+    <EntitySet Name="CentroAdministrativoes" EntityType="VYMCoreModel.CentroAdministrativo" />
+    <EntitySet Name="UbicacionGeograficas" EntityType="VYMCoreModel.UbicacionGeografica" />
+    <EntitySet Name="AntecedentesPatologicosOAlergias" EntityType="VYMCoreModel.AntecedentesPatologicosOAlergia" />
+    <EntitySet Name="EntidadPersonas" EntityType="VYMCoreModel.EntidadPersona" />
+    <EntitySet Name="PerfilProfesionals" EntityType="VYMCoreModel.PerfilProfesional" />
+    <EntitySet Name="PerfilUsuarios" EntityType="VYMCoreModel.PerfilUsuario" />
+    <EntitySet Name="AgendaEntidadPersonas" EntityType="VYMCoreModel.AgendaEntidadPersona" />
+    <AssociationSet Name="FK__Catalogo__IdCata__2F10007B" Association="VYMCoreModel.FK__Catalogo__IdCata__2F10007B">
+      <End Role="Catalogo" EntitySet="Catalogoes" />
+      <End Role="Catalogo1" EntitySet="Catalogoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AgendaEnt__IdCen__72C60C4A" Association="VYMCoreModel.FK__AgendaEnt__IdCen__72C60C4A">
+      <End Role="CentroAdministrativo" EntitySet="CentroAdministrativoes" />
+      <End Role="AgendaEntidadPersona" EntitySet="AgendaEntidadPersonas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CentroAdm__IdCen__2D27B809" Association="VYMCoreModel.FK__CentroAdm__IdCen__2D27B809">
+      <End Role="CentroAdministrativo" EntitySet="CentroAdministrativoes" />
+      <End Role="CentroAdministrativo1" EntitySet="CentroAdministrativoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CentroAdm__IdUbi__060DEAE8" Association="VYMCoreModel.FK__CentroAdm__IdUbi__060DEAE8">
+      <End Role="UbicacionGeografica" EntitySet="UbicacionGeograficas" />
+      <End Role="CentroAdministrativo" EntitySet="CentroAdministrativoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EntidadPe__IdUbi__628FA481" Association="VYMCoreModel.FK__EntidadPe__IdUbi__628FA481">
+      <End Role="UbicacionGeografica" EntitySet="UbicacionGeograficas" />
+      <End Role="EntidadPersona" EntitySet="EntidadPersonas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EntidadPe__IdUbi__6383C8BA" Association="VYMCoreModel.FK__EntidadPe__IdUbi__6383C8BA">
+      <End Role="UbicacionGeografica" EntitySet="UbicacionGeograficas" />
+      <End Role="EntidadPersona" EntitySet="EntidadPersonas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PerfilPro__IdUbi__6E01572D" Association="VYMCoreModel.FK__PerfilPro__IdUbi__6E01572D">
+      <End Role="UbicacionGeografica" EntitySet="UbicacionGeograficas" />
+      <End Role="PerfilProfesional" EntitySet="PerfilProfesionals" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ubicacion__IdUbi__300424B4" Association="VYMCoreModel.FK__Ubicacion__IdUbi__300424B4">
+      <End Role="UbicacionGeografica" EntitySet="UbicacionGeograficas" />
+      <End Role="UbicacionGeografica1" EntitySet="UbicacionGeograficas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Anteceden__IdEnt__6754599E" Association="VYMCoreModel.FK__Anteceden__IdEnt__6754599E">
+      <End Role="EntidadPersona" EntitySet="EntidadPersonas" />
+      <End Role="AntecedentesPatologicosOAlergia" EntitySet="AntecedentesPatologicosOAlergias" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AgendaEnt__IdEnt__70DDC3D8" Association="VYMCoreModel.FK__AgendaEnt__IdEnt__70DDC3D8">
+      <End Role="EntidadPersona" EntitySet="EntidadPersonas" />
+      <End Role="AgendaEntidadPersona" EntitySet="AgendaEntidadPersonas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AgendaEnt__IdEnt__71D1E811" Association="VYMCoreModel.FK__AgendaEnt__IdEnt__71D1E811">
+      <End Role="EntidadPersona" EntitySet="EntidadPersonas" />
+      <End Role="AgendaEntidadPersona" EntitySet="AgendaEntidadPersonas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EntidadPe__IdEnt__6477ECF3" Association="VYMCoreModel.FK__EntidadPe__IdEnt__6477ECF3">
+      <End Role="EntidadPersona" EntitySet="EntidadPersonas" />
+      <End Role="EntidadPersona1" EntitySet="EntidadPersonas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PerfilPro__IdEnt__6D0D32F4" Association="VYMCoreModel.FK__PerfilPro__IdEnt__6D0D32F4">
+      <End Role="EntidadPersona" EntitySet="EntidadPersonas" />
+      <End Role="PerfilProfesional" EntitySet="PerfilProfesionals" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PerfilUsu__IdEnt__6A30C649" Association="VYMCoreModel.FK__PerfilUsu__IdEnt__6A30C649">
+      <End Role="EntidadPersona" EntitySet="EntidadPersonas" />
+      <End Role="PerfilUsuario" EntitySet="PerfilUsuarios" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ActivacionUsuario">
+    <Key>
+      <PropertyRef Name="ParametroActivar" />
+    </Key>
+    <Property Name="ParametroActivar" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Usuario" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Tipo" Type="Int32" Nullable="false" />
+    <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaActivacion" Type="DateTime" Precision="3" />
+    <Property Name="EsActivo" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Catalogo">
+    <Key>
+      <PropertyRef Name="IdCatalogo" />
+    </Key>
+    <Property Name="IdCatalogo" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Valor" Type="Int64" />
+    <Property Name="IdCatalogoPadre" Type="Int64" />
+    <Property Name="EsActivo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Catalogo1" Relationship="VYMCoreModel.FK__Catalogo__IdCata__2F10007B" FromRole="Catalogo" ToRole="Catalogo1" />
+    <NavigationProperty Name="Catalogo2" Relationship="VYMCoreModel.FK__Catalogo__IdCata__2F10007B" FromRole="Catalogo1" ToRole="Catalogo" />
+  </EntityType>
+  <EntityType Name="CentroAdministrativo">
+    <Key>
+      <PropertyRef Name="IdCentroAdministrativo" />
+    </Key>
+    <Property Name="IdCentroAdministrativo" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="IdUbicacionGeografica" Type="Int64" Nullable="false" />
+    <Property Name="Direccion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="UrlMapa" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="IdCentroAdministrativoPadre" Type="Int64" />
+    <Property Name="EsActivo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AgendaEntidadPersonas" Relationship="VYMCoreModel.FK__AgendaEnt__IdCen__72C60C4A" FromRole="CentroAdministrativo" ToRole="AgendaEntidadPersona" />
+    <NavigationProperty Name="CentroAdministrativo1" Relationship="VYMCoreModel.FK__CentroAdm__IdCen__2D27B809" FromRole="CentroAdministrativo" ToRole="CentroAdministrativo1" />
+    <NavigationProperty Name="CentroAdministrativo2" Relationship="VYMCoreModel.FK__CentroAdm__IdCen__2D27B809" FromRole="CentroAdministrativo1" ToRole="CentroAdministrativo" />
+    <NavigationProperty Name="UbicacionGeografica" Relationship="VYMCoreModel.FK__CentroAdm__IdUbi__060DEAE8" FromRole="CentroAdministrativo" ToRole="UbicacionGeografica" />
+  </EntityType>
+  <EntityType Name="UbicacionGeografica">
+    <Key>
+      <PropertyRef Name="IdUbicacionGeografica" />
+    </Key>
+    <Property Name="IdUbicacionGeografica" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdTipoUbicacionGeografica" Type="Int64" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IdUbicacionGeograficaPadre" Type="Int64" />
+    <Property Name="EsActivo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CentroAdministrativoes" Relationship="VYMCoreModel.FK__CentroAdm__IdUbi__060DEAE8" FromRole="UbicacionGeografica" ToRole="CentroAdministrativo" />
+    <NavigationProperty Name="EntidadPersonas" Relationship="VYMCoreModel.FK__EntidadPe__IdUbi__628FA481" FromRole="UbicacionGeografica" ToRole="EntidadPersona" />
+    <NavigationProperty Name="EntidadPersonas1" Relationship="VYMCoreModel.FK__EntidadPe__IdUbi__6383C8BA" FromRole="UbicacionGeografica" ToRole="EntidadPersona" />
+    <NavigationProperty Name="PerfilProfesionals" Relationship="VYMCoreModel.FK__PerfilPro__IdUbi__6E01572D" FromRole="UbicacionGeografica" ToRole="PerfilProfesional" />
+    <NavigationProperty Name="UbicacionGeografica1" Relationship="VYMCoreModel.FK__Ubicacion__IdUbi__300424B4" FromRole="UbicacionGeografica" ToRole="UbicacionGeografica1" />
+    <NavigationProperty Name="UbicacionGeografica2" Relationship="VYMCoreModel.FK__Ubicacion__IdUbi__300424B4" FromRole="UbicacionGeografica1" ToRole="UbicacionGeografica" />
+  </EntityType>
+  <EntityType Name="AntecedentesPatologicosOAlergia">
+    <Key>
+      <PropertyRef Name="IdAntecedentesPatologicosAlergias" />
+    </Key>
+    <Property Name="IdAntecedentesPatologicosAlergias" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdEntidadPersona" Type="Int64" Nullable="false" />
+    <Property Name="IdTipoAntecedente" Type="Int64" Nullable="false" />
+    <Property Name="PatologiaOAlergia" Type="Int64" Nullable="false" />
+    <Property Name="TienePatologiaOAlergia" Type="Boolean" Nullable="false" />
+    <Property Name="Observacion" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaUltModificacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IdUsuarioCreacion" Type="Int64" Nullable="false" />
+    <Property Name="IdUsuarioModificacion" Type="Int64" />
+    <Property Name="EsActivo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="EntidadPersona" Relationship="VYMCoreModel.FK__Anteceden__IdEnt__6754599E" FromRole="AntecedentesPatologicosOAlergia" ToRole="EntidadPersona" />
+  </EntityType>
+  <EntityType Name="EntidadPersona">
+    <Key>
+      <PropertyRef Name="IdEntidadPersona" />
+    </Key>
+    <Property Name="IdEntidadPersona" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CedulaRuc" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Nombres" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="Apellidos" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="IdUbicacionGeograficaNacim" Type="Int64" Nullable="false" />
+    <Property Name="FechaNacimiento" Type="DateTime" Precision="3" />
+    <Property Name="Genero" Type="Int64" Nullable="false" />
+    <Property Name="EstadoCivil" Type="Int64" Nullable="false" />
+    <Property Name="TelefonoMovil" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TelefonoConvencional" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Direccion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="IdUbicacionGeograficaResid" Type="Int64" Nullable="false" />
+    <Property Name="PesoNacimiento" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="EstaturaNacimiento" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="PerimetroCefalico" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="Apgar" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="TipoParto" Type="Int64" />
+    <Property Name="SemanasGestacion" Type="Int32" />
+    <Property Name="IndiceMasaCorporal" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="TipoSangre" Type="Int64" />
+    <Property Name="ConQuienvive" Type="Int64" />
+    <Property Name="Observaciones" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Profesion" Type="Int64" />
+    <Property Name="Ocupacion" Type="Int64" />
+    <Property Name="Parentesco" Type="Int64" />
+    <Property Name="Religion" Type="Int64" />
+    <Property Name="Etnia" Type="Int64" />
+    <Property Name="Correo" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="NombreUsuario" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Contrasena" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaUltModificacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IdUsuarioCreacion" Type="Int64" Nullable="false" />
+    <Property Name="IdUsuarioModificacion" Type="Int64" />
+    <Property Name="IdEntidadPersonaPadre" Type="Int64" />
+    <Property Name="EsActivo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="UbicacionGeografica" Relationship="VYMCoreModel.FK__EntidadPe__IdUbi__628FA481" FromRole="EntidadPersona" ToRole="UbicacionGeografica" />
+    <NavigationProperty Name="UbicacionGeografica1" Relationship="VYMCoreModel.FK__EntidadPe__IdUbi__6383C8BA" FromRole="EntidadPersona" ToRole="UbicacionGeografica" />
+    <NavigationProperty Name="AntecedentesPatologicosOAlergias" Relationship="VYMCoreModel.FK__Anteceden__IdEnt__6754599E" FromRole="EntidadPersona" ToRole="AntecedentesPatologicosOAlergia" />
+    <NavigationProperty Name="AgendaEntidadPersonas" Relationship="VYMCoreModel.FK__AgendaEnt__IdEnt__70DDC3D8" FromRole="EntidadPersona" ToRole="AgendaEntidadPersona" />
+    <NavigationProperty Name="AgendaEntidadPersonas1" Relationship="VYMCoreModel.FK__AgendaEnt__IdEnt__71D1E811" FromRole="EntidadPersona" ToRole="AgendaEntidadPersona" />
+    <NavigationProperty Name="EntidadPersona1" Relationship="VYMCoreModel.FK__EntidadPe__IdEnt__6477ECF3" FromRole="EntidadPersona" ToRole="EntidadPersona1" />
+    <NavigationProperty Name="EntidadPersona2" Relationship="VYMCoreModel.FK__EntidadPe__IdEnt__6477ECF3" FromRole="EntidadPersona1" ToRole="EntidadPersona" />
+    <NavigationProperty Name="PerfilProfesionals" Relationship="VYMCoreModel.FK__PerfilPro__IdEnt__6D0D32F4" FromRole="EntidadPersona" ToRole="PerfilProfesional" />
+    <NavigationProperty Name="PerfilUsuarios" Relationship="VYMCoreModel.FK__PerfilUsu__IdEnt__6A30C649" FromRole="EntidadPersona" ToRole="PerfilUsuario" />
+  </EntityType>
+  <EntityType Name="PerfilProfesional">
+    <Key>
+      <PropertyRef Name="IdPerfilProfesional" />
+    </Key>
+    <Property Name="IdPerfilProfesional" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdEntidadPersona" Type="Int64" Nullable="false" />
+    <Property Name="NivelEstudio" Type="Int64" Nullable="false" />
+    <Property Name="EntidadEducativa" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="IdUbicacionGeograficaEntidad" Type="Int64" Nullable="false" />
+    <Property Name="AnioGraduacion" Type="Int32" />
+    <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaUltModificacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IdUsuarioCreacion" Type="Int64" Nullable="false" />
+    <Property Name="IdUsuarioModificacion" Type="Int64" />
+    <Property Name="EsActiva" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="UbicacionGeografica" Relationship="VYMCoreModel.FK__PerfilPro__IdUbi__6E01572D" FromRole="PerfilProfesional" ToRole="UbicacionGeografica" />
+    <NavigationProperty Name="EntidadPersona" Relationship="VYMCoreModel.FK__PerfilPro__IdEnt__6D0D32F4" FromRole="PerfilProfesional" ToRole="EntidadPersona" />
+  </EntityType>
+  <EntityType Name="PerfilUsuario">
+    <Key>
+      <PropertyRef Name="IdPerfilUsuario" />
+    </Key>
+    <Property Name="IdPerfilUsuario" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdEntidadPersona" Type="Int64" Nullable="false" />
+    <Property Name="TipoUsuario" Type="Int64" Nullable="false" />
+    <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaUltModificacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IdUsuarioCreacion" Type="Int64" Nullable="false" />
+    <Property Name="IdUsuarioModificacion" Type="Int64" />
+    <Property Name="EsActivo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="EntidadPersona" Relationship="VYMCoreModel.FK__PerfilUsu__IdEnt__6A30C649" FromRole="PerfilUsuario" ToRole="EntidadPersona" />
+  </EntityType>
+  <EntityType Name="AgendaEntidadPersona">
+    <Key>
+      <PropertyRef Name="IdAgendaEntidadPersona" />
+    </Key>
+    <Property Name="IdAgendaEntidadPersona" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdEntidadPersonaProf" Type="Int64" Nullable="false" />
+    <Property Name="IdEntidadPersonaCliente" Type="Int64" />
+    <Property Name="IdCentroAdministrativo" Type="Int64" />
+    <Property Name="FechaTurnoDesde" Type="DateTime" Precision="3" />
+    <Property Name="FechaTurnoHasta" Type="DateTime" Precision="3" />
+    <Property Name="EstadoTurno" Type="Int64" Nullable="false" />
+    <Property Name="EsConfirmadaCita" Type="Boolean" Nullable="false" />
+    <Property Name="TiempoViajeMinsProf" Type="Int32" />
+    <Property Name="TiempoViajeMinsCliente" Type="Int32" />
+    <Property Name="EstadoCita" Type="Int64" />
+    <Property Name="MotivoConsulta" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Observacion" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="TiempoEstimadaCitaMins" Type="Int32" />
+    <Property Name="TipoEvento" Type="Int64" Nullable="false" />
+    <Property Name="AlertaRecordatorioProf" Type="Boolean" />
+    <Property Name="TiempoAlertaProf" Type="Int32" />
+    <Property Name="AlertaRecordatotioCliente" Type="Boolean" />
+    <Property Name="TiempoAlertaCliente" Type="Int32" />
+    <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaUltModificacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IdUsuarioCreacion" Type="Int64" Nullable="false" />
+    <Property Name="IdUsuarioModificacion" Type="Int64" />
+    <Property Name="EsActiva" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CentroAdministrativo" Relationship="VYMCoreModel.FK__AgendaEnt__IdCen__72C60C4A" FromRole="AgendaEntidadPersona" ToRole="CentroAdministrativo" />
+    <NavigationProperty Name="EntidadPersona" Relationship="VYMCoreModel.FK__AgendaEnt__IdEnt__70DDC3D8" FromRole="AgendaEntidadPersona" ToRole="EntidadPersona" />
+    <NavigationProperty Name="EntidadPersona1" Relationship="VYMCoreModel.FK__AgendaEnt__IdEnt__71D1E811" FromRole="AgendaEntidadPersona" ToRole="EntidadPersona" />
+  </EntityType>
+  <Association Name="FK__Catalogo__IdCata__2F10007B">
+    <End Type="VYMCoreModel.Catalogo" Role="Catalogo" Multiplicity="0..1" />
+    <End Type="VYMCoreModel.Catalogo" Role="Catalogo1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Catalogo">
+        <PropertyRef Name="IdCatalogo" />
+      </Principal>
+      <Dependent Role="Catalogo1">
+        <PropertyRef Name="IdCatalogoPadre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AgendaEnt__IdCen__72C60C4A">
+    <End Type="VYMCoreModel.CentroAdministrativo" Role="CentroAdministrativo" Multiplicity="0..1" />
+    <End Type="VYMCoreModel.AgendaEntidadPersona" Role="AgendaEntidadPersona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CentroAdministrativo">
+        <PropertyRef Name="IdCentroAdministrativo" />
+      </Principal>
+      <Dependent Role="AgendaEntidadPersona">
+        <PropertyRef Name="IdCentroAdministrativo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CentroAdm__IdCen__2D27B809">
+    <End Type="VYMCoreModel.CentroAdministrativo" Role="CentroAdministrativo" Multiplicity="0..1" />
+    <End Type="VYMCoreModel.CentroAdministrativo" Role="CentroAdministrativo1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CentroAdministrativo">
+        <PropertyRef Name="IdCentroAdministrativo" />
+      </Principal>
+      <Dependent Role="CentroAdministrativo1">
+        <PropertyRef Name="IdCentroAdministrativoPadre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CentroAdm__IdUbi__060DEAE8">
+    <End Type="VYMCoreModel.UbicacionGeografica" Role="UbicacionGeografica" Multiplicity="1" />
+    <End Type="VYMCoreModel.CentroAdministrativo" Role="CentroAdministrativo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UbicacionGeografica">
+        <PropertyRef Name="IdUbicacionGeografica" />
+      </Principal>
+      <Dependent Role="CentroAdministrativo">
+        <PropertyRef Name="IdUbicacionGeografica" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EntidadPe__IdUbi__628FA481">
+    <End Type="VYMCoreModel.UbicacionGeografica" Role="UbicacionGeografica" Multiplicity="1" />
+    <End Type="VYMCoreModel.EntidadPersona" Role="EntidadPersona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UbicacionGeografica">
+        <PropertyRef Name="IdUbicacionGeografica" />
+      </Principal>
+      <Dependent Role="EntidadPersona">
+        <PropertyRef Name="IdUbicacionGeograficaNacim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EntidadPe__IdUbi__6383C8BA">
+    <End Type="VYMCoreModel.UbicacionGeografica" Role="UbicacionGeografica" Multiplicity="1" />
+    <End Type="VYMCoreModel.EntidadPersona" Role="EntidadPersona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UbicacionGeografica">
+        <PropertyRef Name="IdUbicacionGeografica" />
+      </Principal>
+      <Dependent Role="EntidadPersona">
+        <PropertyRef Name="IdUbicacionGeograficaResid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PerfilPro__IdUbi__6E01572D">
+    <End Type="VYMCoreModel.UbicacionGeografica" Role="UbicacionGeografica" Multiplicity="1" />
+    <End Type="VYMCoreModel.PerfilProfesional" Role="PerfilProfesional" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UbicacionGeografica">
+        <PropertyRef Name="IdUbicacionGeografica" />
+      </Principal>
+      <Dependent Role="PerfilProfesional">
+        <PropertyRef Name="IdUbicacionGeograficaEntidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ubicacion__IdUbi__300424B4">
+    <End Type="VYMCoreModel.UbicacionGeografica" Role="UbicacionGeografica" Multiplicity="0..1" />
+    <End Type="VYMCoreModel.UbicacionGeografica" Role="UbicacionGeografica1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UbicacionGeografica">
+        <PropertyRef Name="IdUbicacionGeografica" />
+      </Principal>
+      <Dependent Role="UbicacionGeografica1">
+        <PropertyRef Name="IdUbicacionGeograficaPadre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Anteceden__IdEnt__6754599E">
+    <End Type="VYMCoreModel.EntidadPersona" Role="EntidadPersona" Multiplicity="1" />
+    <End Type="VYMCoreModel.AntecedentesPatologicosOAlergia" Role="AntecedentesPatologicosOAlergia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EntidadPersona">
+        <PropertyRef Name="IdEntidadPersona" />
+      </Principal>
+      <Dependent Role="AntecedentesPatologicosOAlergia">
+        <PropertyRef Name="IdEntidadPersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AgendaEnt__IdEnt__70DDC3D8">
+    <End Type="VYMCoreModel.EntidadPersona" Role="EntidadPersona" Multiplicity="1" />
+    <End Type="VYMCoreModel.AgendaEntidadPersona" Role="AgendaEntidadPersona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EntidadPersona">
+        <PropertyRef Name="IdEntidadPersona" />
+      </Principal>
+      <Dependent Role="AgendaEntidadPersona">
+        <PropertyRef Name="IdEntidadPersonaProf" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AgendaEnt__IdEnt__71D1E811">
+    <End Type="VYMCoreModel.EntidadPersona" Role="EntidadPersona" Multiplicity="0..1" />
+    <End Type="VYMCoreModel.AgendaEntidadPersona" Role="AgendaEntidadPersona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EntidadPersona">
+        <PropertyRef Name="IdEntidadPersona" />
+      </Principal>
+      <Dependent Role="AgendaEntidadPersona">
+        <PropertyRef Name="IdEntidadPersonaCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EntidadPe__IdEnt__6477ECF3">
+    <End Type="VYMCoreModel.EntidadPersona" Role="EntidadPersona" Multiplicity="0..1" />
+    <End Type="VYMCoreModel.EntidadPersona" Role="EntidadPersona1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EntidadPersona">
+        <PropertyRef Name="IdEntidadPersona" />
+      </Principal>
+      <Dependent Role="EntidadPersona1">
+        <PropertyRef Name="IdEntidadPersonaPadre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PerfilPro__IdEnt__6D0D32F4">
+    <End Type="VYMCoreModel.EntidadPersona" Role="EntidadPersona" Multiplicity="1" />
+    <End Type="VYMCoreModel.PerfilProfesional" Role="PerfilProfesional" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EntidadPersona">
+        <PropertyRef Name="IdEntidadPersona" />
+      </Principal>
+      <Dependent Role="PerfilProfesional">
+        <PropertyRef Name="IdEntidadPersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PerfilUsu__IdEnt__6A30C649">
+    <End Type="VYMCoreModel.EntidadPersona" Role="EntidadPersona" Multiplicity="1" />
+    <End Type="VYMCoreModel.PerfilUsuario" Role="PerfilUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EntidadPersona">
+        <PropertyRef Name="IdEntidadPersona" />
+      </Principal>
+      <Dependent Role="PerfilUsuario">
+        <PropertyRef Name="IdEntidadPersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

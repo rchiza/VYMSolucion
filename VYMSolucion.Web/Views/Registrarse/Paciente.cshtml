@@ -1,0 +1,164 @@
+﻿@using CaptchaMvc.HtmlHelpers
+@using CaptchaMvc.Models
+@using Resources
+@model VYMSolucion.Model.PacienteModel
+@{
+    ViewBag.Title = ResourceLayout.Paciente;
+}
+
+<div class="row">
+    <div class="col-md-6">
+        Varia información
+    </div>
+    <div class="col-md-6">
+        @{ Html.EnableClientValidation(); }
+        @using (Html.BeginForm("PacienteCrear", "Registrarse"))
+        {
+            <div class="alert alert-info">
+                (<span class="span-bold span-color-red">*</span>)&nbsp;<span class="span-bold">@ResourceLayout.MensajeCamposObligatorios</span>
+
+            </div>
+            @Html.ValidationSummary(false, ResourceMensajes.ErrorDatosRegistro)
+            <div class="form-group">
+                @Html.LabelFor(l => l.CedulaRuc) <span class="span-bold">:</span><span class="span-bold span-color-red">*</span>
+                @Html.TextBoxFor(tb => tb.CedulaRuc, new { @class = "form-control", placeholder = ResourceComun.CedulaRuc, autocomplete = "off" })
+                <span class="error-span-CedulaRuc" id="CedulaRuc">@Html.ValidationMessageFor(vm => vm.CedulaRuc)</span>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(l => l.Nombres) <span class="span-bold">:</span><span class="span-bold span-color-red">*</span>
+                @Html.TextBoxFor(tb => tb.Nombres, new { @class = "form-control", placeholder = ResourceComun.Nombres, autocomplete = "off" })
+                @Html.ValidationMessageFor(vm => vm.Nombres)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(l => l.Apellidos) <span class="span-bold">:</span><span class="span-bold span-color-red">*</span>
+                @Html.TextBoxFor(tb => tb.Apellidos, new { @class = "form-control", placeholder = ResourceComun.Apellidos, autocomplete = "off" })
+                @Html.ValidationMessageFor(vm => vm.Apellidos)
+            </div>
+            
+            <div class="form-group">
+                @Html.LabelFor(l => l.TelefonoMovil) <span class="span-bold">:</span><span class="span-bold span-color-red">*</span>
+                <div class="input-group">
+                    @Html.TextBoxFor(tb => tb.TelefonoMovil, new { @class = "form-control", placeholder = ResourceComun.TelefonoMovil, autocomplete = "off" })
+                    <span class="input-group-addon">
+                        <i class="fa fa-exclamation-circle" id="i-TelefonoMovil"></i>
+                    </span>
+                </div>
+                @Html.ValidationMessageFor(vm => vm.TelefonoMovil)
+                @Html.Kendo().Tooltip().For("#i-TelefonoMovil").Content(ResourceLayout.ToolTipTelefonoCelular)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(l => l.TelefonoConvencional) <span class="span-bold">:</span><span class="span-bold span-color-white">*</span>
+                <div class="input-group">
+                    @Html.TextBoxFor(tb => tb.TelefonoConvencional, new { @class = "form-control", placeholder = ResourceComun.TelefonoConvencional, autocomplete = "off" })
+                    <span class="input-group-addon">
+                        <i class="fa fa-exclamation-circle" id="i-TelefonoConvencional"></i>
+                    </span>
+                </div>
+                @Html.ValidationMessageFor(vm => vm.TelefonoConvencional)
+                @Html.Kendo().Tooltip().For("#i-TelefonoConvencional").Content(ResourceLayout.ToolTipoTelefonoConvencional)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(l => l.Direccion) <span class="span-bold">:</span><span class="span-bold span-color-red">*</span>
+                @Html.TextAreaFor(tb => tb.Direccion, new { @class = "form-control", placeholder = ResourceComun.Direccion, style = "height: 50px; resize: none;", autocomplete = "new-password" })
+                @Html.ValidationMessageFor(vm => vm.Direccion)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(l => l.IdUbicacionGeograficaResid) <span class="span-bold">:</span><span class="span-bold span-color-red">*</span>
+                @(Html.Kendo().DropDownListFor(ddl => ddl.PaisResid)
+                      .OptionLabel(ResourceComun.Pais)
+                      .DataValueField("Id")
+                      .DataTextField("Nombre")
+                      .HtmlAttributes(new { style = "width: 100%;", @class = "dropDrawnList-border" })
+                      .DataSource(source => source.Read(read => read.Action("ListaTodasUbicacionGeografica", "Catalogo")))
+                )
+                @(Html.Kendo().DropDownListFor(ddl => ddl.ProvinciaResid)
+                      .OptionLabel(ResourceComun.Provincia)
+                      .DataValueField("Id")
+                      .DataTextField("Nombre")
+                      .HtmlAttributes(new { style = "width: 100%;", @class = "dropDrawnList-border" })
+                      .DataSource(source => source.Read(read => read
+                          .Action("ListaTodasUbicacionGeograficaHijo", "Catalogo")
+                          .Data("ObtenerIdUbicacionGeograficaPadreR"))
+                          .ServerFiltering(true))
+                      .Enable(false)
+                      .AutoBind(false)
+                      .CascadeFrom("PaisResid")
+                )
+                @(Html.Kendo().DropDownListFor(ddl => ddl.IdUbicacionGeograficaResid)
+                      .OptionLabel(ResourceComun.Ciudad)
+                      .DataValueField("Id")
+                      .DataTextField("Nombre")
+                      .HtmlAttributes(new { style = "width: 100%;", @class = "dropDrawnList-border" })
+                      .DataSource(source => source.Read(read => read
+                          .Action("ListaTodasUbicacionGeograficaHijo", "Catalogo")
+                          .Data("ObtenerIdUbicacionGeograficaPadreHijoR"))
+                          .ServerFiltering(true))
+                      .Enable(false)
+                      .AutoBind(false)
+                      .CascadeFrom("ProvinciaResid")
+                )
+
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(l => l.Correo) <span class="span-bold">:</span><span class="span-bold span-color-red">*</span>
+                @Html.TextBoxFor(tb => tb.Correo, new { @class = "form-control", placeholder = ResourceComun.Correo, autocomplete = "off" })
+                <span class="error-span-Correo" id="Correo">
+                    @Html.ValidationMessageFor(vm => vm.Correo)
+                </span>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(l => l.Contrasena) <span class="span-bold">:</span><span class="span-bold span-color-red">*</span>
+                @Html.PasswordFor(tb => tb.Contrasena, new {@class = "form-control", placeholder = ResourceComun.Contrasena, autocomplete = "new-password"})
+                @Html.ValidationMessageFor(vm => vm.Contrasena)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(l => l.ContrasenaRepetir) <span class="span-bold">:</span><span class="span-bold span-color-red">*</span>
+                @Html.PasswordFor(tb => tb.ContrasenaRepetir, new { @class = "form-control", placeholder = ResourceComun.ContrasenaRepetir, autocomplete = "new-password" })
+                <span class="error-span-ContrasenaRepetir" id="ContrasenaRepetir">
+                    @Html.ValidationMessageFor(vm => vm.ContrasenaRepetir)
+                </span>
+            </div>
+            <div class="form-group">
+                @Html.Captcha(ResourceLayout.Recargar, ResourceLayout.Resultado, 6, ResourceMensajes.PropertyValueRequired, true)
+                <span class="error-span-CaptchaInputText" id="CaptchaInputText">
+                    @Html.ValidationMessage("CaptchaInputText")
+                </span>
+            </div>
+            <div class="form-group">
+                @(Html.Kendo().Button()
+                      .Name("btnCrearRegistro")
+                      .Content(ResourceLayout.Registrate)
+                      .HtmlAttributes(new { @class = "button-normal full white", style = "width: 100%;" })
+                )
+
+            </div>
+        }
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        
+        var form = document;
+        validarCustomInputs(form);
+    });
+</script>
+
+@* funciones Jquery para complementos de telerik *@
+<script>
+    
+    //Obtiene el valor seleccionado del combo País para el combo Provincia
+    function ObtenerIdUbicacionGeograficaPadreR() {
+        return {
+            idPadre: $("#PaisResid").val()
+        }
+    }
+
+    //Obtiene el valor seleccionado del combo Provincia para el combo Ciudad
+    function ObtenerIdUbicacionGeograficaPadreHijoR() {
+        return {
+            idPadre: $("#ProvinciaResid").val()
+        }
+    }
+
+</script>

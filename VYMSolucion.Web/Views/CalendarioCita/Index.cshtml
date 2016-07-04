@@ -1,0 +1,41 @@
+﻿@using Resources
+
+@{
+    ViewBag.Title = ResourceComun.AgendarCitasMedicas;
+}
+
+<h2>@ResourceComun.AgendarCitasMedicas</h2>
+<br/>
+@(Html.Kendo().Button()
+    .Name("btnCalendarioAgenda")
+    .Icon("calendar")
+    .Content(ResourceComun.AgendarCita)
+    .HtmlAttributes(new {type = "button"})
+    )
+<br/>
+@(Html.Kendo().Calendar()
+        .Name("calendarioCitas")
+        .Value(DateTime.Today)
+        .Footer(" ")
+        
+)
+<script>
+    
+</script>
+
+<style>
+    #calendarioCitas {
+        width: 100%;
+    }
+
+    /* Template días */
+
+    .conCitas {
+        font-weight: bold;
+    }
+
+    .conCitas {
+        color: #dc143c;
+    }
+
+</style>

@@ -1,0 +1,282 @@
+﻿@using CaptchaMvc.HtmlHelpers
+@using Resources
+@model VYMSolucion.Model.PacienteTitularModel
+@{
+    if (Model.Nuevo) { ViewBag.Title = ResourceLayout.Nuevo + " " + ResourceLayout.Paciente; }
+    if (Model.Ver) { ViewBag.Title = ResourceLayout.Ver + " " + ResourceLayout.Paciente; }
+    if (Model.Editar) { ViewBag.Title = ResourceLayout.Editar + " " + ResourceLayout.Paciente; }
+    if (Model.ActivarDesactivar) { ViewBag.Title = ResourceLayout.ActivarDesactivar + " " + ResourceLayout.Paciente; }
+}
+<div class="row">
+    <div class="col-md-10">
+        @{ Html.EnableClientValidation(); }
+        @using (Html.BeginForm("Paciente", "Paciente"))
+        {
+            @Html.HiddenFor(h => h.Nuevo)
+            @Html.HiddenFor(h => h.Editar)
+            @Html.HiddenFor(h => h.ActivarDesactivar)
+            <div class="alert alert-info">
+                (<span class="span-bold span-color-red">*</span>)&nbsp;<span class="span-bold">@ResourceLayout.MensajeCamposObligatorios</span>
+            </div>
+            @Html.ValidationSummary(false, ResourceMensajes.ErrorDatosRegistro, new { @class = "alert alert-danger" })
+            <!-- nav -->
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a data-toggle="tab" href="#sectionA">@ResourceLayout.DatosGenerales</a>
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#sectionB">@ResourceLayout.DatosNacimiento</a>
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#sectionC">@ResourceLayout.DatosResidencia</a>
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#sectionD">@ResourceLayout.Observaciones</a>
+                </li>
+            </ul>
+            <!-- .nav -->
+            <!-- content -->
+            <div class="tab-content">
+                <!-- 1 -->
+                <div id="sectionA" class="tab-pane fade in active">
+                    <div class="form-group">
+                        @Html.LabelFor(l => l.CedulaRuc) <span class="span-bold">:</span><span class="span-bold span-color-red">*</span>
+                        @Html.TextBoxFor(tb => tb.CedulaRuc, new { @class = "form-control", placeholder = ResourceComun.CedulaRuc, autocomplete = "off" })
+                        <span class="error-span-CedulaRuc" id="CedulaRuc">@Html.ValidationMessageFor(vm => vm.CedulaRuc)</span>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(l => l.Nombres) <span class="span-bold">:</span><span class="span-bold span-color-red">*</span>
+                        @Html.TextBoxFor(tb => tb.Nombres, new { @class = "form-control", placeholder = ResourceComun.Nombres, autocomplete = "off" })
+                        @Html.ValidationMessageFor(vm => vm.Nombres)
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(l => l.Apellidos) <span class="span-bold">:</span><span class="span-bold span-color-red">*</span>
+                        @Html.TextBoxFor(tb => tb.Apellidos, new { @class = "form-control", placeholder = ResourceComun.Apellidos, autocomplete = "off" })
+                        @Html.ValidationMessageFor(vm => vm.Apellidos)
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(l => l.Parentesco) <span class="span-bold">:</span><span class="span-bold span-color-white">*</span>
+                        <br />
+                        @(Html.Kendo().DropDownListFor(ddl => ddl.Parentesco)
+                          .OptionLabel(ResourceComun.Parentesco)
+                          .DataValueField("Id")
+                          .DataTextField("Nombre")
+                          .HtmlAttributes(new { style = "width: 100%;", @class = "dropDrawnList-border" })
+                          .DataSource(source => source.Read(read => read.Action("ListaParentesco", "Catalogo")))
+                        )
+                        @Html.ValidationMessageFor(vm => vm.Parentesco)
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(l => l.Genero) <span class="span-bold">:</span><span class="span-bold span-color-red">*</span>
+                        <br />
+                        @(Html.Kendo().DropDownListFor(ddl => ddl.Genero)
+                          .OptionLabel(ResourceComun.Genero)
+                          .DataValueField("Id")
+                          .DataTextField("Nombre")
+                          .HtmlAttributes(new { style = "width: 100%;", @class = "dropDrawnList-border" })
+                          .DataSource(source => source.Read(read => read.Action("ListaGenero", "Catalogo")))
+                        )
+                        @Html.ValidationMessageFor(vm => vm.Genero)
+                    </div>
+                    <div>
+                        @Html.LabelFor(l => l.TipoSangre) <span class="span-bold">:</span><span class="span-bold span-color-red"></span>
+                        <br />
+                        @(Html.Kendo().DropDownListFor(ddl => ddl.TipoSangre)
+                          .OptionLabel(ResourceComun.TipoSangre)
+                          .DataValueField("Id")
+                          .DataTextField("Nombre")
+                          .HtmlAttributes(new { style = "width: 100%;", @class = "dropDrawnList-border" })
+                          .DataSource(source => source.Read(read => read.Action("ListaTipoSangre", "Catalogo")))
+                        )
+                        @Html.ValidationMessageFor(vm => vm.TipoSangre)
+                    </div>
+
+                </div>
+                <!-- .1 -->
+                <!-- 2 -->
+                <div id="sectionB" class="tab-pane fade in">
+                    <div class="form-group">
+                        @Html.LabelFor(l => l.IdUbicacionGeograficaNacim) <span class="span-bold">:</span><span class="span-bold span-color-red">*</span>
+                        @(Html.Kendo().DropDownListFor(ddl => ddl.PaisNacim)
+                          .OptionLabel(ResourceComun.Pais)
+                          .DataValueField("Id")
+                          .DataTextField("Nombre")
+                          .HtmlAttributes(new { style = "width: 100%;", @class = "dropDrawnList-border" })
+                          .DataSource(source => source.Read(read => read.Action("ListaTodasUbicacionGeografica", "Catalogo")))
+                        )
+                        @(Html.Kendo().DropDownListFor(ddl => ddl.ProvinciaNacim)
+                          .OptionLabel(ResourceComun.Provincia)
+                          .DataValueField("Id")
+                          .DataTextField("Nombre")
+                          .HtmlAttributes(new { style = "width: 100%;", @class = "dropDrawnList-border" })
+                          .DataSource(source => source.Read(read => read
+                              .Action("ListaTodasUbicacionGeograficaHijo", "Catalogo")
+                              .Data("ObtenerIdUbicacionGeograficaPadre"))
+                              .ServerFiltering(true))
+                          .Enable(false)
+                          .AutoBind(false)
+                          .CascadeFrom("PaisNacim")
+                        )
+                        @(Html.Kendo().DropDownListFor(ddl => ddl.IdUbicacionGeograficaNacim)
+                          .OptionLabel(ResourceComun.Ciudad)
+                          .DataValueField("Id")
+                          .DataTextField("Nombre")
+                          .HtmlAttributes(new { style = "width: 100%;", @class = "dropDrawnList-border" })
+                          .DataSource(source => source.Read(read => read
+                              .Action("ListaTodasUbicacionGeograficaHijo", "Catalogo")
+                              .Data("ObtenerIdUbicacionGeograficaPadreHijo"))
+                              .ServerFiltering(true))
+                          .Enable(false)
+                          .AutoBind(false)
+                          .CascadeFrom("ProvinciaNacim")
+                        )
+
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(l => l.FechaNacimiento) <span class="span-bold">:</span><span class="span-bold span-color-red">*</span>
+                        <br />
+                        @(Html.Kendo().DropDownListFor(ddl => ddl.FechaDia)
+                          .OptionLabel(ResourceComun.Escoger + " " + ResourceComun.Dia)
+                          .DataValueField("Id")
+                          .DataTextField("Nombre")
+                          .HtmlAttributes(new { @class = "dropDrawnList-border" })
+                          .DataSource(source => source.Read(read => read.Action("ListaFechaDias", "Catalogo")))
+                        )
+                        @Html.ValidationMessageFor(vm => vm.FechaDia)
+                        <br />
+                        @(Html.Kendo().DropDownListFor(ddl => ddl.FechaMes)
+                          .OptionLabel(ResourceComun.Escoger + " " + ResourceComun.Mes)
+                          .DataValueField("Id")
+                          .DataTextField("Nombre")
+                          .HtmlAttributes(new { @class = "dropDrawnList-border" })
+                          .DataSource(source => source.Read(read => read.Action("ListaFechaMeses", "Catalogo")))
+                        )
+                        @Html.ValidationMessageFor(vm => vm.FechaMes)
+                        <br />
+                        @(Html.Kendo().DropDownListFor(ddl => ddl.FechaAnio)
+                          .OptionLabel(ResourceComun.Escoger + " " + ResourceComun.Anio)
+                          .DataValueField("Id")
+                          .DataTextField("Nombre")
+                          .HtmlAttributes(new { @class = "dropDrawnList-border" })
+                          .DataSource(source => source.Read(read => read.Action("ListaFechaAniosMenorEdad", "Catalogo")))
+                        )
+                        @Html.ValidationMessageFor(vm => vm.FechaAnio)
+                        <br />
+                        <span class="error-span-FechaNacimiento" id="FechaNacimiento">@Html.ValidationMessageFor(vm => vm.FechaNacimiento)</span>
+                    </div>
+                </div>
+                <!-- .2 -->
+                <!-- 3 -->
+                <div id="sectionC" class="tab-pane fade in">
+                    <div class="form-group">
+                        @Html.LabelFor(l => l.IdUbicacionGeograficaResid) <span class="span-bold">:</span><span class="span-bold span-color-red">*</span>
+                        @(Html.Kendo().DropDownListFor(ddl => ddl.PaisResid)
+                          .OptionLabel(ResourceComun.Pais)
+                          .DataValueField("Id")
+                          .DataTextField("Nombre")
+                          .HtmlAttributes(new { style = "width: 100%;", @class = "dropDrawnList-border" })
+                          .DataSource(source => source.Read(read => read.Action("ListaTodasUbicacionGeografica", "Catalogo")))
+                        )
+                        @(Html.Kendo().DropDownListFor(ddl => ddl.ProvinciaResid)
+                          .OptionLabel(ResourceComun.Provincia)
+                          .DataValueField("Id")
+                          .DataTextField("Nombre")
+                          .HtmlAttributes(new { style = "width: 100%;", @class = "dropDrawnList-border" })
+                          .DataSource(source => source.Read(read => read
+                              .Action("ListaTodasUbicacionGeograficaHijo", "Catalogo")
+                              .Data("ObtenerIdUbicacionGeograficaPadreR"))
+                              .ServerFiltering(true))
+                          .Enable(false)
+                          .AutoBind(false)
+                          .CascadeFrom("PaisResid")
+                        )
+                        @(Html.Kendo().DropDownListFor(ddl => ddl.IdUbicacionGeograficaResid)
+                          .OptionLabel(ResourceComun.Ciudad)
+                          .DataValueField("Id")
+                          .DataTextField("Nombre")
+                          .HtmlAttributes(new { style = "width: 100%;", @class = "dropDrawnList-border" })
+                          .DataSource(source => source.Read(read => read
+                              .Action("ListaTodasUbicacionGeograficaHijo", "Catalogo")
+                              .Data("ObtenerIdUbicacionGeograficaPadreHijoR"))
+                              .ServerFiltering(true))
+                          .Enable(false)
+                          .AutoBind(false)
+                          .CascadeFrom("ProvinciaResid")
+                        )
+
+                    </div>
+                </div>
+                <!-- .3 -->
+                <!-- 4 -->
+                <div id="sectionD" class="tab-pane fade in">
+                    <div class="form-group">
+                        @Html.LabelFor(l => l.Observaciones) <span class="span-bold">:</span><span class="span-bold span-color-white">*</span>
+                        <br />
+                        @Html.TextAreaFor(ta => ta.Observaciones, new { @class = "form-control", cols = 40, rows = 10, placeholder = ResourceComun.Observaciones, autocomplete = "off" })
+                    </div>
+                </div>
+                <!-- .4 -->
+            </div>
+            <!-- content -->
+            <div class="col-md-4">
+                @(Html.Kendo().Button()
+                          .Name("btnGuardar")
+                          .Content(ResourceLayout.Guardar)
+                          .HtmlAttributes(new { @class = "button-normal full white" })
+                )
+            </div>
+            <div class="col-md-4">
+                @(Html.Kendo().Button()
+                          .Name("btnCancelar")
+                          .Content(ResourceLayout.Cancelar)
+                          .HtmlAttributes(new { @class = "button-normal full white", type = "button" })
+                          .Events(e => e.Click("ClickCancelar"))
+                )
+            </div>
+        }
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+
+        var form = document;
+        validarCustomInputs(form);
+    });
+</script>
+@* funciones Jquery para complementos de telerik *@
+<script>
+    //Obtiene el valor seleccionado del combo País para el combo Provincia
+    function ObtenerIdUbicacionGeograficaPadre() {
+        return {
+            idPadre: $("#PaisNacim").val()
+        }
+    }
+
+    //Obtiene el valor seleccionado del combo Provincia para el combo Ciudad
+    function ObtenerIdUbicacionGeograficaPadreHijo() {
+        return {
+            idPadre: $("#ProvinciaNacim").val()
+        }
+    }
+
+    //Obtiene el valor seleccionado del combo País para el combo Provincia
+    function ObtenerIdUbicacionGeograficaPadreR() {
+        return {
+            idPadre: $("#PaisResid").val()
+        }
+    }
+
+    //Obtiene el valor seleccionado del combo Provincia para el combo Ciudad
+    function ObtenerIdUbicacionGeograficaPadreHijoR() {
+        return {
+            idPadre: $("#ProvinciaResid").val()
+        }
+    }
+
+    function ClickCancelar() {
+        window.location.href = '@Url.Action("BuscarPaciente","Paciente")';
+    }
+
+</script>
+

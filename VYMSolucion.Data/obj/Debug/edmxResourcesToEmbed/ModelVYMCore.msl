@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="VYMCoreModelStoreContainer" CdmEntityContainer="VYMCoreEntities">
+    <EntitySetMapping Name="ActivacionUsuarios">
+      <EntityTypeMapping TypeName="VYMCoreModel.ActivacionUsuario">
+        <MappingFragment StoreEntitySet="ActivacionUsuario">
+          <ScalarProperty Name="EsActivo" ColumnName="EsActivo" />
+          <ScalarProperty Name="FechaActivacion" ColumnName="FechaActivacion" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="ParametroActivar" ColumnName="ParametroActivar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Catalogoes">
+      <EntityTypeMapping TypeName="VYMCoreModel.Catalogo">
+        <MappingFragment StoreEntitySet="Catalogo">
+          <ScalarProperty Name="EsActivo" ColumnName="EsActivo" />
+          <ScalarProperty Name="IdCatalogoPadre" ColumnName="IdCatalogoPadre" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdCatalogo" ColumnName="IdCatalogo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CentroAdministrativoes">
+      <EntityTypeMapping TypeName="VYMCoreModel.CentroAdministrativo">
+        <MappingFragment StoreEntitySet="CentroAdministrativo">
+          <ScalarProperty Name="EsActivo" ColumnName="EsActivo" />
+          <ScalarProperty Name="IdCentroAdministrativoPadre" ColumnName="IdCentroAdministrativoPadre" />
+          <ScalarProperty Name="UrlMapa" ColumnName="UrlMapa" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="IdUbicacionGeografica" ColumnName="IdUbicacionGeografica" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdCentroAdministrativo" ColumnName="IdCentroAdministrativo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UbicacionGeograficas">
+      <EntityTypeMapping TypeName="VYMCoreModel.UbicacionGeografica">
+        <MappingFragment StoreEntitySet="UbicacionGeografica">
+          <ScalarProperty Name="EsActivo" ColumnName="EsActivo" />
+          <ScalarProperty Name="IdUbicacionGeograficaPadre" ColumnName="IdUbicacionGeograficaPadre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdTipoUbicacionGeografica" ColumnName="IdTipoUbicacionGeografica" />
+          <ScalarProperty Name="IdUbicacionGeografica" ColumnName="IdUbicacionGeografica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AntecedentesPatologicosOAlergias">
+      <EntityTypeMapping TypeName="VYMCoreModel.AntecedentesPatologicosOAlergia">
+        <MappingFragment StoreEntitySet="AntecedentesPatologicosOAlergias">
+          <ScalarProperty Name="EsActivo" ColumnName="EsActivo" />
+          <ScalarProperty Name="IdUsuarioModificacion" ColumnName="IdUsuarioModificacion" />
+          <ScalarProperty Name="IdUsuarioCreacion" ColumnName="IdUsuarioCreacion" />
+          <ScalarProperty Name="FechaUltModificacion" ColumnName="FechaUltModificacion" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+          <ScalarProperty Name="TienePatologiaOAlergia" ColumnName="TienePatologiaOAlergia" />
+          <ScalarProperty Name="PatologiaOAlergia" ColumnName="PatologiaOAlergia" />
+          <ScalarProperty Name="IdTipoAntecedente" ColumnName="IdTipoAntecedente" />
+          <ScalarProperty Name="IdEntidadPersona" ColumnName="IdEntidadPersona" />
+          <ScalarProperty Name="IdAntecedentesPatologicosAlergias" ColumnName="IdAntecedentesPatologicosAlergias" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EntidadPersonas">
+      <EntityTypeMapping TypeName="VYMCoreModel.EntidadPersona">
+        <MappingFragment StoreEntitySet="EntidadPersona">
+          <ScalarProperty Name="EsActivo" ColumnName="EsActivo" />
+          <ScalarProperty Name="IdEntidadPersonaPadre" ColumnName="IdEntidadPersonaPadre" />
+          <ScalarProperty Name="IdUsuarioModificacion" ColumnName="IdUsuarioModificacion" />
+          <ScalarProperty Name="IdUsuarioCreacion" ColumnName="IdUsuarioCreacion" />
+          <ScalarProperty Name="FechaUltModificacion" ColumnName="FechaUltModificacion" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+          <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Etnia" ColumnName="Etnia" />
+          <ScalarProperty Name="Religion" ColumnName="Religion" />
+          <ScalarProperty Name="Parentesco" ColumnName="Parentesco" />
+          <ScalarProperty Name="Ocupacion" ColumnName="Ocupacion" />
+          <ScalarProperty Name="Profesion" ColumnName="Profesion" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="ConQuienvive" ColumnName="ConQuienvive" />
+          <ScalarProperty Name="TipoSangre" ColumnName="TipoSangre" />
+          <ScalarProperty Name="IndiceMasaCorporal" ColumnName="IndiceMasaCorporal" />
+          <ScalarProperty Name="SemanasGestacion" ColumnName="SemanasGestacion" />
+          <ScalarProperty Name="TipoParto" ColumnName="TipoParto" />
+          <ScalarProperty Name="Apgar" ColumnName="Apgar" />
+          <ScalarProperty Name="PerimetroCefalico" ColumnName="PerimetroCefalico" />
+          <ScalarProperty Name="EstaturaNacimiento" ColumnName="EstaturaNacimiento" />
+          <ScalarProperty Name="PesoNacimiento" ColumnName="PesoNacimiento" />
+          <ScalarProperty Name="IdUbicacionGeograficaResid" ColumnName="IdUbicacionGeograficaResid" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="TelefonoConvencional" ColumnName="TelefonoConvencional" />
+          <ScalarProperty Name="TelefonoMovil" ColumnName="TelefonoMovil" />
+          <ScalarProperty Name="EstadoCivil" ColumnName="EstadoCivil" />
+          <ScalarProperty Name="Genero" ColumnName="Genero" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="IdUbicacionGeograficaNacim" ColumnName="IdUbicacionGeograficaNacim" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="CedulaRuc" ColumnName="CedulaRuc" />
+          <ScalarProperty Name="IdEntidadPersona" ColumnName="IdEntidadPersona" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PerfilProfesionals">
+      <EntityTypeMapping TypeName="VYMCoreModel.PerfilProfesional">
+        <MappingFragment StoreEntitySet="PerfilProfesional">
+          <ScalarProperty Name="EsActiva" ColumnName="EsActiva" />
+          <ScalarProperty Name="IdUsuarioModificacion" ColumnName="IdUsuarioModificacion" />
+          <ScalarProperty Name="IdUsuarioCreacion" ColumnName="IdUsuarioCreacion" />
+          <ScalarProperty Name="FechaUltModificacion" ColumnName="FechaUltModificacion" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="AnioGraduacion" ColumnName="AnioGraduacion" />
+          <ScalarProperty Name="IdUbicacionGeograficaEntidad" ColumnName="IdUbicacionGeograficaEntidad" />
+          <ScalarProperty Name="EntidadEducativa" ColumnName="EntidadEducativa" />
+          <ScalarProperty Name="NivelEstudio" ColumnName="NivelEstudio" />
+          <ScalarProperty Name="IdEntidadPersona" ColumnName="IdEntidadPersona" />
+          <ScalarProperty Name="IdPerfilProfesional" ColumnName="IdPerfilProfesional" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PerfilUsuarios">
+      <EntityTypeMapping TypeName="VYMCoreModel.PerfilUsuario">
+        <MappingFragment StoreEntitySet="PerfilUsuario">
+          <ScalarProperty Name="EsActivo" ColumnName="EsActivo" />
+          <ScalarProperty Name="IdUsuarioModificacion" ColumnName="IdUsuarioModificacion" />
+          <ScalarProperty Name="IdUsuarioCreacion" ColumnName="IdUsuarioCreacion" />
+          <ScalarProperty Name="FechaUltModificacion" ColumnName="FechaUltModificacion" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="TipoUsuario" ColumnName="TipoUsuario" />
+          <ScalarProperty Name="IdEntidadPersona" ColumnName="IdEntidadPersona" />
+          <ScalarProperty Name="IdPerfilUsuario" ColumnName="IdPerfilUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AgendaEntidadPersonas">
+      <EntityTypeMapping TypeName="VYMCoreModel.AgendaEntidadPersona">
+        <MappingFragment StoreEntitySet="AgendaEntidadPersona">
+          <ScalarProperty Name="EsActiva" ColumnName="EsActiva" />
+          <ScalarProperty Name="IdUsuarioModificacion" ColumnName="IdUsuarioModificacion" />
+          <ScalarProperty Name="IdUsuarioCreacion" ColumnName="IdUsuarioCreacion" />
+          <ScalarProperty Name="FechaUltModificacion" ColumnName="FechaUltModificacion" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="TiempoAlertaCliente" ColumnName="TiempoAlertaCliente" />
+          <ScalarProperty Name="AlertaRecordatotioCliente" ColumnName="AlertaRecordatotioCliente" />
+          <ScalarProperty Name="TiempoAlertaProf" ColumnName="TiempoAlertaProf" />
+          <ScalarProperty Name="AlertaRecordatorioProf" ColumnName="AlertaRecordatorioProf" />
+          <ScalarProperty Name="TipoEvento" ColumnName="TipoEvento" />
+          <ScalarProperty Name="TiempoEstimadaCitaMins" ColumnName="TiempoEstimadaCitaMins" />
+          <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+          <ScalarProperty Name="MotivoConsulta" ColumnName="MotivoConsulta" />
+          <ScalarProperty Name="EstadoCita" ColumnName="EstadoCita" />
+          <ScalarProperty Name="TiempoViajeMinsCliente" ColumnName="TiempoViajeMinsCliente" />
+          <ScalarProperty Name="TiempoViajeMinsProf" ColumnName="TiempoViajeMinsProf" />
+          <ScalarProperty Name="EsConfirmadaCita" ColumnName="EsConfirmadaCita" />
+          <ScalarProperty Name="EstadoTurno" ColumnName="EstadoTurno" />
+          <ScalarProperty Name="FechaTurnoHasta" ColumnName="FechaTurnoHasta" />
+          <ScalarProperty Name="FechaTurnoDesde" ColumnName="FechaTurnoDesde" />
+          <ScalarProperty Name="IdCentroAdministrativo" ColumnName="IdCentroAdministrativo" />
+          <ScalarProperty Name="IdEntidadPersonaCliente" ColumnName="IdEntidadPersonaCliente" />
+          <ScalarProperty Name="IdEntidadPersonaProf" ColumnName="IdEntidadPersonaProf" />
+          <ScalarProperty Name="IdAgendaEntidadPersona" ColumnName="IdAgendaEntidadPersona" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

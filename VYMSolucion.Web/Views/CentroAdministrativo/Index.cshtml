@@ -1,0 +1,304 @@
+﻿@using Resources
+@using VYMSolucion.Model
+@using VYMSolucion.Web.UtilitariosWeb
+
+@{
+    ViewBag.Title = ResourceComun.CentrosAdministrativos;
+}
+
+<h2>@ResourceComun.CentrosAdministrativos</h2>
+<br/>
+<table>
+    <tr>
+        <td>
+            @ResourceComun.Nombre :
+        </td>
+        <td>
+            @(Html.Kendo().TextBox()
+                  .Name("txtNombre")
+                  )
+            
+        </td>
+        <td>
+            @ResourceComun.Pais :
+        </td>
+        <td>
+            @(Html.Kendo().DropDownList()
+                  .Name("ddlPais")
+                  .OptionLabel(ResourceComun.Seleccione)
+                  .DataValueField("Id")
+                  .DataTextField("Nombre")
+                  .DataSource(source => source.Read(read => read.Action("ListaTodasUbicacionGeografica", "Catalogo")))
+                  )
+        </td>
+        <td>
+            @ResourceComun.Provincia :
+        </td>
+        <td>
+            @(Html.Kendo().DropDownList()
+                  .Name("ddlProvincia")
+                  .OptionLabel(ResourceComun.Seleccione)
+                  .DataValueField("Id")
+                  .DataTextField("Nombre")
+                  .DataSource(source => source.Read(read => read
+                      .Action("ListaTodasUbicacionGeograficaHijo", "Catalogo")
+                      .Data("ObtenerIdUbicacionGeograficaPadre"))
+                      .ServerFiltering(true))
+                  .Enable(false)
+                  .AutoBind(false)
+                  .CascadeFrom("ddlPais"))
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <span>@ResourceComun.Descripcion</span>
+        </td>
+        <td>
+            @Html.Kendo().TextBox().Name("txtDescripcion")
+        </td>
+        <td>
+            @ResourceComun.Ciudad :
+        </td>
+        <td>
+            @(Html.Kendo().DropDownList()
+                  .Name("ddlCiudad")
+                  .OptionLabel(ResourceComun.Seleccione)
+                  .DataValueField("Id")
+                  .DataTextField("Nombre")
+                  .DataSource(source => source.Read(read => read
+                      .Action("ListaTodasUbicacionGeograficaHijo", "Catalogo")
+                      .Data("ObtenerIdUbicacionGeograficaPadreHijo"))
+                      .ServerFiltering(true))
+                  .Enable(false)
+                  .AutoBind(false)
+                  .CascadeFrom("ddlProvincia"))
+        </td>
+        <td colspan="2">
+            @(Html.Kendo().Button()
+                  .Name("btnBuscar")
+                  .Icon("search")
+                  .Content(ResourceComun.Buscar)
+                  .Events(events => events.Click("FiltarDatosCentroAdministrativo"))
+                  )
+            &nbsp;&nbsp;
+            @(Html.Kendo().Button()
+                  .Name("btnReiniciar")
+                  .Icon("refresh")
+                  .Content(ResourceComun.Reiniciar)
+                  .Events(events => events.Click("ReiniciarDatosCentroAdministrativo"))
+                  )
+        </td>
+    </tr>
+</table>
+<br/>
+<table>
+    <tr>
+        <td>
+            @using (Html.BeginForm("CrearCentroAdministrativo", "CentroAdministrativo"))
+            {
+                @(Html.Kendo().Button()
+                      .Name("btnNuevo")
+                      .HtmlAttributes(new {type = "submit"})
+                      .Icon("plus")
+                      )
+            }
+            @(Html.Kendo().Tooltip()
+                  .For("#btnNuevo")
+                  .Content(ResourceComun.Nuevo)
+                  .Position(TooltipPosition.Top))
+        </td>
+        <td>
+            @using (Html.BeginForm("VerCentroAdministrativo", "CentroAdministrativo"))
+            {
+                <input id="centroAdministrativoV" name="idCentroAdministrativo" type="hidden" value="" />
+                @(Html.Kendo().Button()
+                  .Name("btnVer")
+                  .HtmlAttributes(new { type = "button" })
+                  .Icon("ungroup")
+                )
+            }
+            @(Html.Kendo().Tooltip()
+                  .For("#btnVer")
+                  .Content(ResourceComun.Ver)
+                  .Position(TooltipPosition.Top))
+        </td>
+        <td>
+            @using (Html.BeginForm("EditarCentroAdministrativo", "CentroAdministrativo"))
+            {
+                <input id="centroAdministrativoEd" name="idCentroAdministrativo" type="hidden" value="" />
+                @(Html.Kendo().Button()
+                  .Name("btnEditar")
+                  .HtmlAttributes(new { type = "button" })
+                  .Icon("pencil")
+                )
+            }
+            @(Html.Kendo().Tooltip()
+                  .For("#btnEditar")
+                  .Content(ResourceComun.Editar)
+                  .Position(TooltipPosition.Top))
+        </td>
+        <td>
+            @using (Html.BeginForm("EliminarCentroAdministrativo", "CentroAdministrativo"))
+            {
+                <input id="centroAdministrativoEl" name="idCentroAdministrativo" type="hidden" value="" />
+                @(Html.Kendo().Button()
+                  .Name("btnEliminar")
+                  .HtmlAttributes(new { type = "button" })
+                  .Icon("close")
+                )
+            }
+            @(Html.Kendo().Tooltip()
+                  .For("#btnEliminar")
+                  .Content(ResourceComun.Eliminar)
+                  .Position(TooltipPosition.Top))
+        </td>
+    </tr>
+</table>
+
+<hr/>
+@(Html.Kendo().Grid<CentroAdministrativoModel>()
+      .Name("gridCentroAdministrativo")
+      .Columns(column =>
+      {
+          column.Bound(b => b.IdCentroAdministrativo).Hidden();
+          column.Bound(b => b.Nombre).Width(200);
+          column.Bound(b => b.UbicacionGeograficaNombre).Title(ResourceComun.UbicacionGeografica).Width(150);
+          column.Bound(b => b.Descripcion).Width(200);
+          column.Bound(b => b.Direccion).Width(200);
+          column.Bound(b => b.Telefono).Width(50);
+      })
+      .Pageable(pageable =>
+      {
+          pageable.Enabled(true);
+          pageable.Refresh(true);
+      })
+      .Selectable(select => select.Type(GridSelectionType.Row))
+      .Events(events => events.Change("SeleccionItemGrid"))
+      .Sortable()
+      .DataSource(source => source
+          .Ajax()
+          .PageSize(5)
+          .Read(read => read.Action("LeerTodosCentroAdministrativo", "CentroAdministrativo"))
+      ))
+<br/>
+
+<script>
+    //declaración de variables globales que contiene los controles de los botones de acción
+    $btnNuevo = $("#btnNuevo").kendoButton().data("kendoButton");
+    $btnVer = $("#btnVer").kendoButton().data("kendoButton");
+    $btnEditar = $("#btnEditar").kendoButton().data("kendoButton");
+    $btnEliminar = $("#btnEliminar").kendoButton().data("kendoButton");
+
+    $(document).ready(function() {
+        //descativa botones
+        $btnVer.enable(false);
+        $btnEditar.enable(false);
+        $btnEliminar.enable(false);
+
+        $("#btnNuevo").click(function () {
+            var sol = ObtenerValorItemGridSeleccion();
+            if (sol == null) return;
+            $("#centroAdministrativoN").val(sol);
+            $(this).parents('form').submit();
+        });
+
+        $("#btnVer").click(function () {
+            var sol = ObtenerValorItemGridSeleccion();
+            if (sol == null) return;
+            $("#centroAdministrativoV").val(sol);
+            $(this).parents('form').submit();
+        });
+
+        $("#btnEditar").click(function () {
+            var sol = ObtenerValorItemGridSeleccion();
+            if (sol == null) return;
+            $("#centroAdministrativoEd").val(sol);
+            $(this).parents('form').submit();
+        });
+
+        $("#btnEliminar").click(function () {
+            var sol = ObtenerValorItemGridSeleccion();
+            if (sol == null) return;
+            $("#centroAdministrativoEl").val(sol);
+            $(this).parents('form').submit();
+        });
+    });
+
+    //Obtiene el valor seleccionado del combo País para el combo Provincia
+    function ObtenerIdUbicacionGeograficaPadre() {
+        return {
+            idPadre: $("#ddlPais").val()
+        }
+    }
+
+    //Obtiene el valor seleccionado del combo Provincia para el combo Ciudad
+    function ObtenerIdUbicacionGeograficaPadreHijo() {
+        return {
+            idPadre: $("#ddlProvincia").val()
+        }
+    }
+
+    //Agrega filtros para la data
+    function FiltarDatosCentroAdministrativo() {
+        Buscar();
+    }
+
+    //Limpia los filtros 
+    function ReiniciarDatosCentroAdministrativo() {
+        //variable array para filtros
+        var $filter = new Array();
+        $("#txtNombre").val("");
+        $("#txtDescripcion").val("");
+        $("#ddlPais").data("kendoDropDownList").select(0);
+        //optiene el control de grid
+        var grid = $("#gridCentroAdministrativo").data("kendoGrid");
+        //envía filtros que contiene la variable
+        grid.dataSource.filter($filter);
+
+        //descativa los botones
+        $btnVer.enable(false);
+        $btnEditar.enable(false);
+        $btnEliminar.enable(false);
+    }
+
+    //Envía filtros hacia el grid
+    function Buscar() {
+        //variable array para filtros
+        var $filter = new Array();
+
+        var $nombre = $("#txtNombre").val();
+        var $descripcion = $("#txtDescripcion").val();
+        var $ciudad = $("#ddlCiudad").data("kendoDropDownList").text();
+
+        if ($nombre != "") {
+            $filter.push({ field: "Nombre", operator: "contains", value: $nombre });
+        }
+        if ($descripcion != "") {
+            $filter.push({ field: "Descripcion", operator: "contains", value: $descripcion });
+        }
+
+        if ($ciudad != "@ResourceComun.Seleccione") {
+            $filter.push({ field: "UbicacionGeograficaNombre", operator: "contains", value: $ciudad });
+        }
+        //optiene el control de grid
+        var grid = $("#gridCentroAdministrativo").data("kendoGrid");
+        //envía filtros que contiene la variable
+        grid.dataSource.filter($filter);
+    }
+
+    //Obtiene valor seleccionado del grid de Centros Administrativos
+    function ObtenerValorItemGridSeleccion() {
+        var entityGrid = $("#gridCentroAdministrativo").data("kendoGrid");
+        var selectedItem = entityGrid.dataItem(entityGrid.select());
+        if (selectedItem == null) return null;
+        var id = selectedItem.IdCentroAdministrativo;
+        return id;
+    }
+
+    //Activa botones
+    function SeleccionItemGrid(arg) {
+        $btnVer.enable(true);
+        $btnEditar.enable(true);
+        $btnEliminar.enable(true);
+    }
+</script>

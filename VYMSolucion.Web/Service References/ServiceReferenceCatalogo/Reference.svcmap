@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9e50b396-f5d9-48ea-b25e-cbefc46e49a3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/VYMSolucion.Service/ServiceCatalogo.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServiceCatalogo.xsd" MetadataType="Schema" ID="2ac48e05-fd1f-4a15-b0e6-514502201d9a" SourceId="1" SourceUrl="http://localhost/VYMSolucion.Service/ServiceCatalogo.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServiceCatalogo.wsdl" MetadataType="Wsdl" ID="fff50aa4-56b3-4711-bd0a-9db8d870aa9c" SourceId="1" SourceUrl="http://localhost/VYMSolucion.Service/ServiceCatalogo.svc?wsdl" />
+    <MetadataFile FileName="ServiceCatalogo.disco" MetadataType="Disco" ID="c95cfe63-3936-4378-87a7-61ffdb5cc414" SourceId="1" SourceUrl="http://localhost/VYMSolucion.Service/ServiceCatalogo.svc?disco" />
+    <MetadataFile FileName="ServiceCatalogo1.xsd" MetadataType="Schema" ID="a650f24d-8eaa-4e2e-aa39-ea921bb6e15e" SourceId="1" SourceUrl="http://localhost/VYMSolucion.Service/ServiceCatalogo.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServiceCatalogo2.xsd" MetadataType="Schema" ID="6753df7b-c89a-4adc-8f40-16468e83a16e" SourceId="1" SourceUrl="http://localhost/VYMSolucion.Service/ServiceCatalogo.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

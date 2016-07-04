@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VYMSolucion.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VYMSolucion.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfCentroAdministrativoModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CentroAdministrativoModel" nillable="true" type="tns:CentroAdministrativoModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCentroAdministrativoModel" nillable="true" type="tns:ArrayOfCentroAdministrativoModel" />
+  <xs:complexType name="CentroAdministrativoModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Direccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EsActivo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EsEliminar" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IdCentroAdministrativo" type="xs:long" />
+      <xs:element minOccurs="0" name="IdCentroAdministrativoPadre" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="IdPais" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="IdProvincia" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="IdUbicacionGeografica" type="xs:long" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UbicacionGeograficaNombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UrlMapa" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CentroAdministrativoModel" nillable="true" type="tns:CentroAdministrativoModel" />
+  <xs:complexType name="ArrayOfComboModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ComboModel" nillable="true" type="tns:ComboModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfComboModel" nillable="true" type="tns:ArrayOfComboModel" />
+  <xs:complexType name="ComboModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:long" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ComboModel" nillable="true" type="tns:ComboModel" />
+  <xs:complexType name="IniciarSesionModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Contrasena" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Usuario" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IniciarSesionModel" nillable="true" type="tns:IniciarSesionModel" />
+  <xs:complexType name="DatosUsuarioModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Correo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdPerfil" type="xs:long" />
+      <xs:element minOccurs="0" name="IdUsuario" type="xs:long" />
+      <xs:element minOccurs="0" name="NombrePerfil" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombres" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Usuario" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DatosUsuarioModel" nillable="true" type="tns:DatosUsuarioModel" />
+  <xs:complexType name="ProfesionalModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Apellidos" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CedulaRuc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Contrasena" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContrasenaRepetir" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Correo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Direccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EsActivo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EstadoCivil" type="xs:long" />
+      <xs:element minOccurs="0" name="FechaAnio" type="xs:int" />
+      <xs:element minOccurs="0" name="FechaDia" type="xs:int" />
+      <xs:element minOccurs="0" name="FechaMes" type="xs:int" />
+      <xs:element minOccurs="0" name="FechaNacimiento" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Genero" type="xs:long" />
+      <xs:element minOccurs="0" name="IdEntidadPersona" type="xs:long" />
+      <xs:element minOccurs="0" name="IdUbicacionGeograficaNacim" type="xs:long" />
+      <xs:element minOccurs="0" name="IdUbicacionGeograficaResid" type="xs:long" />
+      <xs:element minOccurs="0" name="NombreUsuario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombres" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PaisNacim" type="xs:long" />
+      <xs:element minOccurs="0" name="PaisResid" type="xs:long" />
+      <xs:element minOccurs="0" name="ProvinciaNacim" type="xs:long" />
+      <xs:element minOccurs="0" name="ProvinciaResid" type="xs:long" />
+      <xs:element minOccurs="0" name="TelefonoConvencional" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TelefonoMovil" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UsuarioAccion" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProfesionalModel" nillable="true" type="tns:ProfesionalModel" />
+  <xs:complexType name="PacienteModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Apellidos" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CedulaRuc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Contrasena" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContrasenaRepetir" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Correo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Direccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EsActivo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FechaAnio" type="xs:int" />
+      <xs:element minOccurs="0" name="FechaDia" type="xs:int" />
+      <xs:element minOccurs="0" name="FechaMes" type="xs:int" />
+      <xs:element minOccurs="0" name="FechaNacimiento" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Genero" type="xs:long" />
+      <xs:element minOccurs="0" name="IdEntidadPersona" type="xs:long" />
+      <xs:element minOccurs="0" name="IdUbicacionGeograficaNacim" type="xs:long" />
+      <xs:element minOccurs="0" name="IdUbicacionGeograficaResid" type="xs:long" />
+      <xs:element minOccurs="0" name="NombreUsuario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombres" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PaisNacim" type="xs:long" />
+      <xs:element minOccurs="0" name="PaisResid" type="xs:long" />
+      <xs:element minOccurs="0" name="ProvinciaNacim" type="xs:long" />
+      <xs:element minOccurs="0" name="ProvinciaResid" type="xs:long" />
+      <xs:element minOccurs="0" name="TelefonoConvencional" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TelefonoMovil" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoSangre" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="UsuarioAccion" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PacienteModel" nillable="true" type="tns:PacienteModel" />
+  <xs:complexType name="PacienteTitularModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActivarDesactivar" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Apellidos" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CedulaRuc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Edad" type="xs:int" />
+      <xs:element minOccurs="0" name="Editar" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EsActivo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FechaAnio" type="xs:int" />
+      <xs:element minOccurs="0" name="FechaDia" type="xs:int" />
+      <xs:element minOccurs="0" name="FechaMes" type="xs:int" />
+      <xs:element minOccurs="0" name="FechaNacimiento" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Genero" type="xs:long" />
+      <xs:element minOccurs="0" name="IdEntidadPersona" type="xs:long" />
+      <xs:element minOccurs="0" name="IdEntidadPersonaPadre" type="xs:long" />
+      <xs:element minOccurs="0" name="IdUbicacionGeograficaNacim" type="xs:long" />
+      <xs:element minOccurs="0" name="IdUbicacionGeograficaResid" type="xs:long" />
+      <xs:element minOccurs="0" name="NombreGenero" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombres" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombresApellidos" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nuevo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Observaciones" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PaisNacim" type="xs:long" />
+      <xs:element minOccurs="0" name="PaisResid" type="xs:long" />
+      <xs:element minOccurs="0" name="Parentesco" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="ProvinciaNacim" type="xs:long" />
+      <xs:element minOccurs="0" name="ProvinciaResid" type="xs:long" />
+      <xs:element minOccurs="0" name="TipoSangre" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="UsuarioAccion" type="xs:long" />
+      <xs:element minOccurs="0" name="Ver" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PacienteTitularModel" nillable="true" type="tns:PacienteTitularModel" />
+  <xs:complexType name="ArrayOfPacienteTitularModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PacienteTitularModel" nillable="true" type="tns:PacienteTitularModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPacienteTitularModel" nillable="true" type="tns:ArrayOfPacienteTitularModel" />
+</xs:schema>
